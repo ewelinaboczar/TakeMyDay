@@ -1,5 +1,8 @@
-body{
+body {
+    width: 100vw;
+    height: 100vh;
     margin: 0;
+    overflow:hidden;
 }
 .container {
     width: 100vw;
@@ -31,10 +34,10 @@ body{
     height: 95%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: white;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 20px;
@@ -47,7 +50,7 @@ body{
     color: #0077AFD1;
 }
 
-.login-container {
+.login-container{
     width: 45%;
     height: 95%;
     display: flex;
@@ -55,162 +58,313 @@ body{
     justify-content: flex-start;
     align-items: center;
 
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: white;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 20px;
     margin-right: 40px;
     margin-left: 40px;
 
+
     text-align: left;
     font: normal normal 600 50px/67px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
 
-.upper-buttons-login{
-    width: 90%;
-    height: 10%;
+
+.upper-buttons{
+    width: 80%;
+    height: 5%;
     display: flex;
     flex-direction: row;
     justify-content: left;
-    align-self: stretch;
+    align-self: center;
     gap: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 28px;
-}
-.upper-buttons-register{
-    width: 90%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-self: stretch;
-    gap: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-top: 30px;
 }
 .text-welcome{
-    width: 90%;
+    width: 80%;
     height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: flex-end;
-    margin-left: 40px;
+
 
     text-align: center;
-    font: normal normal 600 50px/67px Segoe UI;
+    font: normal normal 600 60px/77px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
 .text-upper{
-    width: 90%;
+    width: 80%;
     height: 10%;
     display: flex;
     justify-content: left;
-    margin-left: 40px;
-    
 
     text-align: left;
-    font: normal normal 600 15px/20px Segoe UI;
+    font: normal normal 600 20px/25px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
 form {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-self: start;
 }
 .personal-information{
-    width: 90%;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 80%;
 }
 input {
     background-color: transparent;
-    width: 100%;
+    width: 120%;
     border: none;
     border-bottom: 1px solid #58A6CB;
-    padding: 0.7em;
-    margin: 0.7em;
+    padding: 0.9em;
+    margin-bottom: 0.7em;
+    margin-top: 0.7em;
     text-align: left;
     font: normal normal 600 15px/20px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
+input::placeholder{
+    font: normal normal 600 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #0077AFD1;
+}
 
-.ok-button-login{
-    width: 90%;
-    height: 10%;
-    margin-right: 40px;
-    margin-left: 40px;
+.ok-button{
+    width: 80%;
+    height: 20%;
+    margin-top: 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+.ok-button a.active {
+    background-color: #904797;
+    border-radius: 15px;
+    opacity: 1;
+
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font: normal normal 600 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #E2EDFF;
+}
+
+.upper-buttons a.notactive {
+
+    background: white;
+    border-radius: 15px;
+    opacity: 1;
+
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font: normal normal 600 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #087CB1;
+}
+.upper-buttons a.notactive:hover:not(.active) {
+    background-color: #904797;
+
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font: normal normal 600 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #E2EDFF;
+}
+.upper-buttons a.active {
+    background-color: #904797;
+    border-radius: 15px;
+    opacity: 1;
+
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 30px;
+    font: normal normal 600 15px/20px Segoe UI;
+    letter-spacing: 0px;
+    color: #E2EDFF;
+}
+
+.home-container{
+    width: 100vw;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #FFFFFF 0%, #FDFDFD 47%, #D2D2D2 100%, #E8E8E8 100%) 0% 0% no-repeat padding-box;
+
+    display: flex;
+    flex-direction: column;
+}
+.top-photo{
+    height: 40vw;
+    width: 100vw;
+    background-image: url('../img/pagephoto.svg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius:0px 0px 40px 40px;
+    box-shadow: 0px 3px 6px #00000029;
+
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-between;
+
+}
+.bottom{
+    height: 60vw;
+    width: 100vw;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    gap: 300px;
+
+    padding-left: 0em;
+    padding-right: 2em;
 }
-.ok-button-register{
-    width: 90%;
-    height: 10%;
-    margin-right: 40px;
+
+.top-photo > .left{
+    width: 20vw;
+    height: 20%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 1em 3em;
+    gap: 10px;
+}
+.top-photo > .right{
+    width: 15vw;
+    height: 90%;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 2em;
+    gap: 40px;
+}
+.top-photo > .left i{
+    font-size: 2em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 0.85;
+    padding: 0.3em;
+}
+.top-photo > .left  a{
+    color: #007EAC;
+}
+.top-photo > .logo-home{
+    height: 100%;
+}
+.logo-home img{
+    padding-top: 2em;
+    transform: scale(1.4,1.4);
 }
 
-button.ok {
-    background: #904797 0% 0% no-repeat padding-box;
-    border-radius: 15px;
+.right > .person{
+    width: 100%;
+    height: 40%;
 
-    width: 20%;
-    height: 60%;
-    background: #904797 0% 0% no-repeat padding-box;
-    border-radius: 15px;
-    line-height: 2en;
-    border: none;
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-align: center;
-    font: normal normal 600 15px/20px Segoe UI;
-    letter-spacing: 0px;
+    font: normal normal 600 20px/27px Segoe UI;
+    letter-spacing: 0.9px;
+    color: #FDFDFD;
+}
+.top-photo > .person > img{
+    opacity:1;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.bottom > nav{
+    width: 15vw;
+    height: 100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius:0px 0px 20 px 20px;
+    opacity: 0.85;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+}
+.bottom  a {
+    display: inline-block;
+    line-height: 2em;
+    text-align: left;
+
+
+    padding: 0.2em;
+    padding-left: 0.6em;
+    width: 97%;
+}
+
+.bottom  i {
+    margin-right: 1.5em;
+}
+.bottom  ul {
+    list-style-type: none;
+    font: normal normal 600 21px/28px Segoe UI;
+    letter-spacing: 0.5px;
+    color: #0077AF;
+    text-transform: uppercase;
+    width: calc(100% - 20px);
+    padding-inline-start: 20px;
+}
+.bottom a.active{
+    background: #904797 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 0.85;
+    text-decoration: none;
     color: #E2EDFF;
+    text-transform: uppercase;
 }
-button.login {
-    width: 20%;
-    height: 60%;
-    background: transparent;
-    border: none;
+.bottom  main{
+    width: 77vw;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 0.5em;
+    margin-right: 0em;
 
-    text-align: center;
-    font: normal normal 600 15px/20px Segoe UI;
+    background:  0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 0.85;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.bottom main > .left{
+    height: 100vh;
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+p.txt1 {
+    text-align: left;
+    font: normal normal 600 30px/40px Segoe UI;
     letter-spacing: 0px;
     color: #087CB1;
-    
+    margin: 21px 1em;
 }
-button.register {
-    width: 27%;
-    height: 60%;
-    background: #904797 0% 0% no-repeat padding-box;
-    border-radius: 15px;
-    line-height: 2en;
-    border: none;
+.bottom main > .right{
+    height: 100vh;
+    width: 50vw;
 
-    text-align: center;
-    font: normal normal 600 15px/20px Segoe UI;
-    letter-spacing: 0px;
-    color: #E2EDFF;
-}
-button.forgot-password {
-    background: transparent;
-    border: none;
-    text-align: center;
-    text-decoration: underline;
-    font: normal normal 600 15px/20px Segoe UI;
-    letter-spacing: 0px;
-    color: #087CB1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }

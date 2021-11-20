@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <title>LOGIN PAGE</title>
 </head>
 
@@ -8,13 +8,13 @@
     <div class="container">
         <div class="tlo">
             <div class="logo">
-                <img src="../img/logo.svg">
+                <img src="public/img/logo.svg">
             </div>
         </div>
         <div class="login-container">
-            <div class="upper-buttons-login">
-                <button class="login">Login</button>
-                <button class="register">Registeration</button>
+            <div class="upper-buttons">
+                <a class="active" href="login">Login</a>
+                <a class="notactive" href="register">Register</a>
             </div>
             <div class="text-welcome">
                 <div>Welcome</div>
@@ -28,9 +28,8 @@
                     <input name="password" type="password" placeholder="Password">
                 </form>
             </div>
-            <div class="ok-button-login">
-                <button class="forgot-password">Forgot password</button>
-                <button class="ok">Ok</button>
+            <div class="ok-button">
+                <a class="active" href="../home">Ok</a>
             </div>
         </div>
     </div>
