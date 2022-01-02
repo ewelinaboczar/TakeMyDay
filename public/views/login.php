@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <title>LOGIN PAGE</title>
+    <title>Login page</title>
 </head>
 
 <body>
@@ -23,14 +23,28 @@
                 <div>Please login to your account.</div>
             </div>
             <div class="personal-information">
-                <form>
-                    <input name="user name or email" type="text" type="email" placeholder="User Name">
+                <form id="log_id" action="login" method="post">
+                    <div class="messages">
+                        <?php if(isset($messages)){
+                            foreach ($messages as $message ){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="user_name_or_email" type="text" type="email" placeholder="User Name or Email">
                     <input name="password" type="password" placeholder="Password">
+                    <div class="ok-button">
+                        <a class="active" onclick="log()">Ok</a>
+                    </div>
                 </form>
-            </div>
-            <div class="ok-button">
-                <a class="active" href="../home">Ok</a>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    function log() {
+        document.getElementById("log_id").submit();
+    }
+</script>

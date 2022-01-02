@@ -1,7 +1,9 @@
+html{
+    box-sizing: border-box;
+}
 body {
-
     margin: 0;
-
+    overflow: auto;
 }
 .container {
     width: 100vw;
@@ -13,7 +15,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .tlo{
     width: 55%;
     height: 100%;
@@ -107,7 +108,7 @@ body {
     letter-spacing: 0px;
     color: #0077AFD1;
 }
-form {
+.personal-information form {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -117,7 +118,7 @@ form {
 .personal-information{
     width: 80%;
 }
-input {
+.personal-information input {
     background-color: transparent;
     width: 120%;
     border: none;
@@ -130,14 +131,14 @@ input {
     letter-spacing: 0px;
     color: #0077AFD1;
 }
-input::placeholder{
+.personal-information input::placeholder{
     font: normal normal 600 15px/20px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
 
 .ok-button{
-    width: 80%;
+    width: 125%;
     height: 20%;
     margin-top: 0.9em;
     display: flex;
@@ -195,7 +196,7 @@ input::placeholder{
     width: 100vw;
     height: 100vh;
     background: transparent linear-gradient(180deg, #FFFFFF 0%, #FDFDFD 47%, #D2D2D2 100%, #E8E8E8 100%) 0% 0% no-repeat padding-box;
-
+    overflow: auto;
     display: flex;
     flex-direction: column;
 }
@@ -213,17 +214,15 @@ input::placeholder{
     flex-grow: 1;
     justify-content: space-between;
 
+
 }
 .bottom{
     height: 60vw;
     width: 100vw;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    padding-left: 0em;
-    padding-right: 2em;
+    padding-bottom: 2em;
 }
 
 .top-photo > .left{
@@ -285,7 +284,7 @@ input::placeholder{
     height: 100%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
-    border-radius:0px 0px 20 px 20px;
+    border-radius:0px 0px 20px 20px;
     opacity: 0.85;
 
     display: flex;
@@ -293,46 +292,52 @@ input::placeholder{
     justify-content: flex-start;
     align-self: center;
 }
-.bottom  a {
+.bottom > nav a {
     display: inline-block;
     line-height: 2em;
     text-align: left;
-    padding: 0.2em;
-    padding-left: 0.6em;
-    width: 97%;
+    padding-left: 1.45em;
+    width: 100%;
+    padding-right: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
-
-.bottom  i {
-    margin-right: 1.5em;
+.bottom > nav a.notactive:hover{
+    background: #904797 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 0.85;
+    font: normal normal 600 21px/28px Segoe UI;
+    color: #E2EDFF;
 }
-.bottom li{
+.bottom > nav i {
+    margin-right: 1em;
+}
+.bottom > nav li{
     padding: 0.5em 0 0.5em 0 ;
 }
-.bottom  ul {
+.bottom > nav  ul {
     list-style-type: none;
     font: normal normal 600 21px/28px Segoe UI;
     letter-spacing: 0.5px;
-    color: #0077AF;
-    text-transform: uppercase;
     width: calc(100% - 20px);
-    padding-inline-start: 20px;
+    padding-inline-start: 0;
 }
-.bottom a.active{
+.bottom > nav a.active{
+    font: normal normal 600 21px/28px Segoe UI;
     background: #904797 0% 0% no-repeat padding-box;
     border-radius: 15px;
     opacity: 0.85;
     text-decoration: none;
     color: #E2EDFF;
-    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.bottom a.notactive{
+.bottom > nav a.notactive{
     text-decoration: none;
     font: normal normal 600 21px/28px Segoe UI;
-    letter-spacing: 0px;
+    letter-spacing: 0.5px;
     color: #0077AF;
-    text-transform: uppercase;
 }
-.bottom  main{
+.bottom main{
     width: 77vw;
     height: 100%;
     margin-top: 0;
@@ -349,8 +354,8 @@ input::placeholder{
     justify-content: center;
 }
 
-.bottom main > .right{
-     height: 100vh;
+.bottom main.home-bottom > .right{
+     padding-bottom: 2em;
      width: 50vw;
 
      display: flex;
@@ -407,8 +412,12 @@ input::placeholder{
 .fa, .fas{
     width: 1em;
 }
-.bottom main > .left{
-    height: 100vh;
+.bottom main.home-bottom > .right > .plans-home > div{
+    background: #007EAC;
+}
+
+.bottom main.home-bottom > .left{
+    padding-bottom: 2em;
     width: 50vw;
 
     display: flex;
@@ -438,4 +447,173 @@ p.txt2 {
     color: #FFFFFF;
     text-shadow: 0px 3px 6px #00000029;
 }
+main.discover-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+.selectable-bar{
+    background: #0E86B0 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.selectable-bar > form {
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    gap: 0.5em;
+}
+
+.selectable-bar select{
+    align-self: center;
+    width: 22vw;
+    padding: 0.5em 2em;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    display: flex;
+
+
+    font: normal normal 600 18px/24px Segoe UI;
+    color: #E2EDFF;
+}
+
+.selectable-bar input[type="date"] {
+    align-self: center;
+    width: 18vw;
+    padding: 0.5em 2em;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    display: flex;
+
+    font: normal normal 600 18px/24px Segoe UI;
+    color: #E2EDFF;
+}
+
+.selectable-bar input[type="time"] {
+    align-self: center;
+    width: 18vw;
+    padding: 0.5em 2em;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    display: flex;
+
+    font: normal normal 600 18px/24px Segoe UI;
+    color: #E2EDFF;
+}
+
+.submit {
+    background: #9C5FA6 0% 0% no-repeat padding-box;
+    border-radius: 50px;
+    width: 10vw;
+    text-align: center;
+    padding: 1em;
+    color: #E2EDFF;
+    font: normal normal 600 18px/24px Segoe UI;
+    border: none;
+}
+
+.discover-bottom > div.under{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2em;
+    gap:2em;
+}
+.discover-bottom > div.under p{
+    align-self: center;
+    text-align: left;
+    margin:0;
+    font: normal normal 600 35px/47px Segoe UI;
+    letter-spacing: 2.45px;
+    color: #0E86B0;
+}
+.discover-bottom > div.under a{
+    align-self: center;
+    text-align: left;
+    text-decoration: underline;
+    font: normal normal 600 15px/20px Segoe UI;
+    color: #0E86B0;
+}
+
+@media only screen and (max-device-width: 420px){
+    .container {
+        flex-direction: column;
+    }
+    .login-container{
+        width: 100%;
+        height: 60%;
+    }
+    .register-container{
+        width: 100%;
+        height: 60%;
+    }
+    .tlo{
+        height: 40%;
+        width: 100%;
+        background-image: url('../img/tlo_media.svg');
+        background-size: cover;
+        position: relative;
+    }
+    .logo{
+        position: absolute;
+        right: 10em;
+        top: 40em;
+        transform: scale(2.5,2.5);
+    }
+    .upper-buttons {
+        flex-direction: column;
+        position: absolute;
+        left: -4em;
+        top : 3em;
+        align-content: flex-start;
+
+    }
+    .upper-buttons > a.active{
+        padding: 30px 60px;
+        align-self: center;
+        font: normal normal 600 25px/30px Segoe UI;
+    }
+    .upper-buttons a.notactive{
+        align-self: center;
+        background-color: transparent;
+        color: white;
+        padding: 30px 60px;
+        font: normal normal 600 25px/30px Segoe UI;
+    }
+    .upper-buttons a.notactive:hover:not(.active){
+        padding: 30px 60px;
+        font: normal normal 600 25px/30px Segoe UI;
+    }
+    .text-welcome {
+        position: absolute;
+        top : 4em;
+        font-size: 90px;
+        color: #E2EDFF;
+    }
+    .text-upper {
+        position: absolute;
+        font-size: 30px;
+        top : 19em;
+        color: #E2EDFF;
+    }
+    .personal-information input{
+        font: normal normal 600 40px/45px Segoe UI;
+    }
+    .personal-information input::placeholder{
+        font: normal normal 600 30px/35px Segoe UI;
+    }
+    .ok-button a.active{
+        padding: 30px 60px;
+        font: normal normal 600 25px/30px Segoe UI;
+    }
+    .container input{
+        font: normal normal 600 30px/35px Segoe UI;
+    }
+}
+
+
 
