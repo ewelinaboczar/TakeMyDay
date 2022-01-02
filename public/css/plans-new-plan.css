@@ -1,0 +1,105 @@
+section{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em;
+    gap: 2em;
+}
+main.your-plans-bottom{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.your-plans-bottom > .selectable-bar{
+    justify-content: space-evenly;
+}
+.your-plans-bottom a{
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font: normal normal 600 18px/24px Segoe UI;
+    padding: 0.5em 3em;
+    text-decoration: none;
+}
+.your-plans-bottom a.active{
+    background-color: #FFFFFF;
+    color: #0E86B0;
+}
+.your-plans-bottom a:hover{
+    background-color: #E4E4E4;
+    color: #0E86B0;
+}
+section > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    height: 25%;
+}
+.heart {
+    position: relative;
+}
+.heart p {
+    position: absolute;
+    left: -15.5em;
+    top: 6em;
+    padding: 0.7em;
+    background-color: #E6EFFE;
+    border-radius: 50%;
+    color: #9C5FA6;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+}
+.heart i{
+    font-size: 30px;
+    align-self: center;
+    align-content: center;
+    padding: 0;
+    background-color: transparent;
+}
+.description{
+    width: 100%;
+    background: #8F479B 0% 0% no-repeat padding-box;
+    border-radius: 0 15px 15px 0;
+    padding: 1em;
+    display: flex;
+    position: relative;
+}
+.plan-informations{
+    align-self: center;
+}
+.plan-informations > div {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1em 4em;
+    font: normal normal normal 17px/20px Segoe UI;
+    color: #E2EDFF;
+}
+.plan-informations div > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: flex-start;
+}
+.plan-informations i > img {
+    width: 7%;
+    align-self: center;
+}
+.likes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-content: center;
+    right: 1em;
+    bottom: 0;
+    font: normal normal normal 17px/20px Segoe UI;
+    color: #E2EDFF;
+}
+.likes i {
+    align-self: center;
+}
+.likes p{
+    margin-top: 0.5em;
+}
+

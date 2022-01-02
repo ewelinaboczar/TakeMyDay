@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <title>REGISTRATION PAGE</title>
+    <title>Registration page</title>
 </head>
 
 <body>
@@ -28,7 +28,6 @@
                     <input name="email" type="text" placeholder="Email">
                     <input name="password" type="password" placeholder="Password">
                     <input name="confirm password" type="password" placeholder="Confirm password">
-                    <input name="date of birth" type="date" placeholder="Date of birth">
                     <input name="country" type="text" placeholder="Country">
                 </form>
             </div>
