@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/plans-new-plan.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/selectable-bar.css">
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <title>Your plans page</title>
 </head>
@@ -17,7 +17,7 @@
                 <img src="/public/img/logo.svg">
             </div>
             <div class="person">
-                <div>Hi, Gabriele</div>
+                <div>Hi, <? echo $_COOKIE['nick']?> </div>
                 <div>
                     <img src="/public/img/osoba.svg">
                 </div>
@@ -37,17 +37,17 @@
                     <a class="notactive" href="favourite"><i class="fas fa-heart"></i>FAVOURITE</a>
                 </li>
                 <li>
-                    <a class="active" href="your_plan"><i class="far fa-clock"></i>YOUR PLANS</a>
+                    <a class="active" href="your_plans"><i class="far fa-clock"></i>YOUR PLANS</a>
                 </li>
                 <li>
-                    <a class="notactive" href=#><i class="fas fa-user-circle"></i>ACCOUNT</a>
+                    <a class="notactive" href="account_details"><i class="fas fa-user-circle"></i>ACCOUNT</a>
                 </li>
             </ul>
         </nav>
         <main class="your-plans-bottom">
             <div class="selectable-bar">
-                <a class="active" href="#">Your plans</a>
-                <a class="notactive" href="#">Create plan</a>
+                <a class="active" href="your_plans">Your plans</a>
+                <a class="notactive" href="create_plan">Create plan</a>
             </div>
             <section class="specific-plans">
                 <div id="plan1">

@@ -12,14 +12,14 @@
     <div class="top-photo">
         <div class="left">
             <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <a class="log-out" href="../"><i class="fas fa-sign-out-alt"></i></a>
+            <a class="log-out" href="login" ><i class="fas fa-sign-out-alt"></i></a>
         </div>
         <div class="right">
             <div class="logo-home">
                 <img src="/public/img/logo.svg">
             </div>
             <div class="person">
-                <div>Hi, Gabriele</div>
+                <div>Hi, <? echo $_COOKIE['nick']?> </div>
                 <div>
                     <img src="/public/img/osoba.svg">
                 </div>
@@ -42,7 +42,7 @@
                     <a class="notactive" href="your_plans"><i class="far fa-clock"></i>YOUR PLANS</a>
                 </li>
                 <li>
-                    <a class="notactive" href=#><i class="fas fa-user-circle"></i>ACCOUNT</a>
+                    <a class="notactive" href="account_details"><i class="fas fa-user-circle"></i>ACCOUNT</a>
                 </li>
             </ul>
         </nav>

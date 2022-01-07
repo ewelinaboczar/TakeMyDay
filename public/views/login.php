@@ -32,7 +32,7 @@
                         }
                         ?>
                     </div>
-                    <input name="user_name_or_email" type="text" type="email" placeholder="User Name or Email">
+                    <input name="email" type="text" type="email" placeholder="Email">
                     <input name="password" type="password" placeholder="Password">
                     <div class="ok-button">
                         <a class="active" onclick="log()">Ok</a>

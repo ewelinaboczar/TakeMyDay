@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Registration page</title>
 </head>
 
@@ -23,16 +24,23 @@
                 <div>Please register to your account.</div>
             </div>
             <div class="personal-information">
-                <form>
-                    <input name="user name" type="text" placeholder="User Name">
+                <form id="register_id" action="register" method="post">
+                    <div class="messages">
+                        <?php if(isset($messages)){
+                            foreach ($messages as $message ){
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <input name="nick" type="text" placeholder="Nickname">
                     <input name="email" type="text" placeholder="Email">
                     <input name="password" type="password" placeholder="Password">
-                    <input name="confirm password" type="password" placeholder="Confirm password">
-                    <input name="country" type="text" placeholder="Country">
+                    <input name="confirm_password" type="password" placeholder="Confirm password">
+                    <div class="ok-button">
+                        <a class="active" onclick="register()">Ok</a>
+                    </div>
                 </form>
-            </div>
-            <div class="ok-button">
-                <a class="active" href="../home">Ok</a>
             </div>
         </div>
     </div>

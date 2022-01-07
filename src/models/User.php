@@ -5,46 +5,35 @@ class User
 {
     private $email;
     private $password;
-    private $userName;
-    private $country;
+    private $nick;
 
-    public function __construct(string $email,string $password,string $userName,string $country)
-    {
+    public function __construct(string $email, string $password, string $nick){
         $this->email = $email;
         $this->password = $password;
-        $this->userName = $userName;
-        $this->country = $country;
+        $this->nick = $nick;
     }
-    public function getEmail(): string
-    {
+
+    public function getEmail(): string{
         return $this->email;
     }
-    public function setEmail(string $email): void
-    {
+
+    public function setEmail(string $email): void{
         $this->email = $email;
     }
-    public function getPassword(): string
-    {
+
+    public function getPassword(): string{
         return $this->password;
     }
-    public function setPassword(string $password): void
-    {
+
+    public function setPassword(string $password): void{
         $this->password = $password;
     }
-    public function getUserName(): string
-    {
-        return $this->userName;
+
+    public function setNick(string $nick): void{
+        $this->nick = $nick;
     }
-    public function setUserName(string $userName): void
-    {
-        $this->userName = $userName;
-    }
-    public function getCountry(): string
-    {
-        return $this->country;
-    }
-    public function setCountry(string $country): void
-    {
-        $this->country = $country;
+
+    public function getNick(): string{
+        return $this->nick;
     }
 }

@@ -36,6 +36,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap:0.5em;
 
     background: white;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -57,6 +58,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 0.5em;
 
     background: white;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -99,7 +101,6 @@ body {
 }
 .text-upper{
     width: 80%;
-    height: 10%;
     display: flex;
     justify-content: left;
 
@@ -140,7 +141,7 @@ body {
 .ok-button{
     width: 125%;
     height: 20%;
-    margin-top: 0.9em;
+    margin-top: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -165,6 +166,7 @@ body {
     border-radius: 15px;
 
     text-align: center;
+    align-self: center;
     text-decoration: none;
     padding: 10px 30px;
     font: normal normal 600 15px/20px Segoe UI;
@@ -173,7 +175,7 @@ body {
 }
 .upper-buttons a.notactive:hover:not(.active) {
     background-color: #904797;
-
+    align-self: center;
     text-align: center;
     text-decoration: none;
     padding: 10px 30px;
@@ -185,6 +187,7 @@ body {
     background-color: #904797;
     border-radius: 15px;
     text-align: center;
+    align-self: center;
     text-decoration: none;
     padding: 10px 30px;
     font: normal normal 600 15px/20px Segoe UI;
@@ -201,20 +204,16 @@ body {
     flex-direction: column;
 }
 .top-photo{
-    height: 40vw;
-    width: 100vw;
+    max-height: 40%;
+    width: auto;
     background-image: url('../img/pagephoto.svg');
-    background-size:cover;
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius:0px 0px 40px 40px;
     box-shadow: 0px 3px 6px #00000029;
 
     display: flex;
-    flex-direction: row;
-    flex-grow: 1;
     justify-content: space-between;
-
-
 }
 .bottom{
     height: 60vw;
@@ -226,8 +225,8 @@ body {
 }
 
 .top-photo > .left{
-    width: 20vw;
-    height: 20%;
+    max-width: 20%;
+    height: auto;
 
     display: flex;
     flex-direction: row;
@@ -236,14 +235,14 @@ body {
     gap: 10px;
 }
 .top-photo > .right{
-    width: 15vw;
-    height: 90%;
+    max-width: 20%;
+    height: auto;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 2em;
-    gap: 40px;
+    margin: 1em;
+    gap: 2em;
 }
 .top-photo > .left i{
     font-size: 2em;
@@ -258,11 +257,11 @@ body {
 .top-photo > .logo-home{
     height: 100%;
 }
-.logo-home img{
-    padding-top: 2em;
-    transform: scale(1.4,1.4);
+.logo-home {
+    align-self: center;
+    max-width: 100%;
+    height: 60%;
 }
-
 .right > .person{
     width: 100%;
     height: 40%;
@@ -275,12 +274,17 @@ body {
     letter-spacing: 0.9px;
     color: #FDFDFD;
 }
-.top-photo > .person > img{
-    opacity:1;
-    box-shadow: 0px 3px 6px #00000029;
+.person :last-child{
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+}
+.person :first-child{
+    width: 50%;
+    height: auto;
 }
 .bottom > nav{
-    width: 15vw;
+    width: 20%;
     height: 100%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
@@ -306,24 +310,24 @@ body {
     background: #904797 0% 0% no-repeat padding-box;
     border-radius: 15px;
     opacity: 0.85;
-    font: normal normal 600 21px/28px Segoe UI;
+    font: normal normal 600 18px/24px Segoe UI;
     color: #E2EDFF;
 }
 .bottom > nav i {
-    margin-right: 1em;
+    margin-right: 2em;
 }
 .bottom > nav li{
     padding: 0.5em 0 0.5em 0 ;
 }
 .bottom > nav  ul {
     list-style-type: none;
-    font: normal normal 600 21px/28px Segoe UI;
+    font: normal normal 600 18px/24px Segoe UI;
     letter-spacing: 0.5px;
     width: calc(100% - 20px);
     padding-inline-start: 0;
 }
 .bottom > nav a.active{
-    font: normal normal 600 21px/28px Segoe UI;
+    font: normal normal 600 18px/24px Segoe UI;
     background: #904797 0% 0% no-repeat padding-box;
     border-radius: 15px;
     opacity: 0.85;
@@ -333,12 +337,12 @@ body {
 }
 .bottom > nav a.notactive{
     text-decoration: none;
-    font: normal normal 600 21px/28px Segoe UI;
+    font: normal normal 600 18px/24px Segoe UI;
     letter-spacing: 0.5px;
     color: #0077AF;
 }
 .bottom main{
-    width: 77vw;
+    width: 70%;
     height: 100%;
     margin-top: 0;
     margin-left: 0.5em;
@@ -454,22 +458,21 @@ main.discover-bottom {
     align-content: flex-start;
 }
 .selectable-bar{
+    padding: 0.5em;
     background: #0E86B0 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
 }
 .selectable-bar > form {
-    height: 7vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 1em;
     gap: 0.5em;
 }
 
 .selectable-bar select{
     align-self: center;
-    width: 22vw;
+    width: 14vw;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
@@ -482,7 +485,7 @@ main.discover-bottom {
 
 .selectable-bar input[type="date"] {
     align-self: center;
-    width: 18vw;
+    width: 10vw;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
@@ -494,7 +497,7 @@ main.discover-bottom {
 
 .selectable-bar input[type="time"] {
     align-self: center;
-    width: 18vw;
+    width: 10vw;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
@@ -509,13 +512,13 @@ main.discover-bottom {
     border-radius: 50px;
     width: 10vw;
     text-align: center;
-    padding: 1em;
+    padding: 0.5em;
     color: #E2EDFF;
     font: normal normal 600 18px/24px Segoe UI;
     border: none;
 }
 
-.discover-bottom > div.under{
+div.under, div.under-create{
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -523,7 +526,7 @@ main.discover-bottom {
     padding: 2em;
     gap:2em;
 }
-.discover-bottom > div.under p{
+div.under p, div.under-create p{
     align-self: center;
     text-align: left;
     margin:0;
@@ -531,12 +534,35 @@ main.discover-bottom {
     letter-spacing: 2.45px;
     color: #0E86B0;
 }
+div.under-create a{
+    font: normal normal 600 18px/24px Segoe UI;
+    color: #FAFAFA;
+    background: #0E86B0 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    width: 6vw;
+}
 .discover-bottom > div.under a{
     align-self: center;
     text-align: left;
     text-decoration: underline;
     font: normal normal 600 15px/20px Segoe UI;
     color: #0E86B0;
+}
+.fav-bottom , .account > p {
+    text-align: center;
+    font: normal normal 600 35px/47px Segoe UI;
+    letter-spacing: 2.45px;
+    color: #0E86B0;
+}
+.messages{
+    font: normal normal normal 10px/17px Segoe UI;
+    letter-spacing: -0.6px;
+    color: darkred;
+}
+.no-valid {
+    border: 3px solid darkred;
+    box-shadow: 0 0 0.2em darkred;
+    outline: none;
 }
 
 @media only screen and (max-device-width: 420px){

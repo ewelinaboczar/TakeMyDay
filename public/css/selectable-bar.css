@@ -1,0 +1,201 @@
+section {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.specific-plans{
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em;
+    gap: 2em;
+    overflow: auto;
+}
+
+main.your-plans-bottom{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.your-plans-bottom > .selectable-bar{
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    display: flex;
+    justify-content: space-evenly;
+}
+.your-plans-bottom a{
+    align-self: center;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font: normal normal 600 18px/24px Segoe UI;
+    width: 18vw;
+    padding: 0.5em 2em;
+    text-decoration: none;
+}
+.your-plans-bottom a.active{
+    background-color: #FFFFFF;
+    color: #0E86B0;
+}
+.your-plans-bottom a:hover{
+    background-color: #E4E4E4;
+    color: #0E86B0;
+}
+.specific-plans > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    height: 25%;
+}
+.specific-plans img {
+    border-radius: 15px 0 0 15px;
+}
+.heart {
+    position: relative;
+}
+.heart p {
+    position: absolute;
+    left: -15.5em;
+    top: 6em;
+    padding: 0.7em;
+    background-color: #E6EFFE;
+    border-radius: 50%;
+    color: #9C5FA6;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+}
+.heart i{
+    font-size: 30px;
+    align-self: center;
+    align-content: center;
+    padding: 0;
+    background-color: transparent;
+}
+.description{
+    width: 100%;
+    background: #8F479B 0% 0% no-repeat padding-box;
+    border-radius: 0 15px 15px 0;
+    padding: 1em;
+    display: flex;
+    position: relative;
+}
+.plan-informations{
+    align-self: center;
+}
+.plan-informations > div {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1em 4em;
+    font: normal normal normal 17px/20px Segoe UI;
+    color: #E2EDFF;
+}
+.plan-informations div > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: flex-start;
+}
+.likes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-content: center;
+    right: 1em;
+    bottom: 0;
+    font: normal normal normal 17px/20px Segoe UI;
+    color: #E2EDFF;
+}
+.likes i {
+    align-self: center;
+}
+.likes p{
+    margin-top: 0.5em;
+}
+/* ------------------- Account Details ------------------- */
+.account {
+    padding:0;
+    align-content: center;
+    height: 100%;
+}
+.account a {
+    background: #904797 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    opacity: 0.85;
+    align-self: flex-start;
+    padding: 0.5em;
+}
+.box-informations {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1em;
+    padding-bottom: 1em;
+}
+.changing-photo {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.changing-photo > .photo {
+    height: 60%;
+    display: flex;
+}
+.changing-photo > .button {
+    height: 40%;
+    display: flex;
+}
+.photo img {
+    object-fit: cover;
+    width: 100%;
+    height: 80%;
+    border-radius: 50%;
+    background: transparent  0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 5px solid #8D489B;
+}
+.personal-details {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.personal-details > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    padding-right: 5em;
+}
+.personal-details p {
+    margin: 0;
+    font: normal normal 600 15px/20px Segoe UI;
+    color: #0080AC;
+    align-self: center;
+}
+.personal-details > div > div, .personal-details input {
+    font: normal normal 600 18px/24px Segoe UI;
+    color: #0080AC;
+    padding: 0.5em 0 ;
+}
+.personal-details input {
+    border-color: #0E86B0;
+    text-decoration: none;
+    background: #E2EDFF ;
+}
+.personal-details a{
+    align-self: center;
+    margin-top:3em;
+}
+/* ------------------- Account Change Password ------------------- */
+
+
+
+
+

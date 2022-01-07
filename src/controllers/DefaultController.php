@@ -4,11 +4,6 @@ require_once 'AppController.php';
 
 class DefaultController extends AppController {
 
-    public function register()
-    {
-        $this->render('register');
-    }
-
     public function index()
     {
         $this->render('login');
@@ -31,8 +26,24 @@ class DefaultController extends AppController {
     {
         $this->render('your_plans');
     }
+    public function create_plan()
+    {
+        $this->render('create_plan');
+    }
+    public function add_plan()
+    {
+        $this->render('add_plan');
+    }
     public function discover_results()
     {
         $this->render('discover_results');
+    }
+    public function account_details()
+    {
+        $this->render('account_details');
+    }
+    public function change_password()
+    {
+        $this->render('change_password');
     }
 }

@@ -7,14 +7,8 @@ section  {
     margin-right: 30px;
     margin-bottom: 30px;
 }
-.fav-bottom > p {
-    align-self: center;
-    font: normal normal 600 35px/47px Segoe UI;
-    letter-spacing: 2.45px;
-    color: #0E86B0;
-}
 
-main.fav-bottom{
+main.fav-bottom {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -34,7 +28,7 @@ main.fav-bottom{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 1em;
+    margin: 0.5em;;
     position: relative;
 }
 .fav > div > img{
@@ -87,17 +81,18 @@ main.fav-bottom{
 }
 .likes{
     width: 30%;
+    font: normal normal normal 17px/20px Segoe UI;
 }
 .likes i {
     position: absolute;
-    bottom: 1.7em;
-    right: 1.2em;
+    bottom: 1.5em;
+    right: 0.5em;
     color: #E2EDFF;
 }
 .likes p {
     position: absolute;
     margin: 0;
-    bottom: 0.5em;
-    right: 1em;
+    bottom: 0;
+    right: 0;
     color: #E2EDFF;
 }
