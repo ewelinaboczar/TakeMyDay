@@ -2,8 +2,8 @@ const form = document.querySelector("form");
 const emailInput = form.querySelector('input[name="email"]');
 const confirmedPasswordInput = form.querySelector('input[name="confirm_password"]');
 
-function register() {
-    document.getElementById("register_id").submit();
+function submit() {
+    document.getElementById("submit").submit();
 }
 
 function isEmail(email){

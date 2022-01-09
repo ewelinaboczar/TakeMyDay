@@ -17,4 +17,6 @@ Routing::get('change_password','DefaultController');
 Routing::get('add_plan','DefaultController');
 Routing::get('account_details','DefaultController');
 Routing::get('discover_results','DefaultController');
+Routing::post('addphoto','UserController');
+Routing::get('logout','SecurityController');
 Routing::run($path);

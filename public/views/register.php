@@ -24,7 +24,7 @@
                 <div>Please register to your account.</div>
             </div>
             <div class="personal-information">
-                <form id="register_id" action="register" method="post">
+                <form id="submit" action="register" method="post">
                     <div class="messages">
                         <?php if(isset($messages)){
                             foreach ($messages as $message ){
@@ -38,7 +38,7 @@
                     <input name="password" type="password" placeholder="Password">
                     <input name="confirm_password" type="password" placeholder="Confirm password">
                     <div class="ok-button">
-                        <a class="active" onclick="register()">Ok</a>
+                        <a class="active" onclick="submit()">Ok</a>
                     </div>
                 </form>
             </div>

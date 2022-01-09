@@ -17,6 +17,12 @@ class SecurityController extends AppController{
     }
 
     public function login(){
+        session_start();
+        if(isset($_SESSION['session'])){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/home");
+        }
+
         $userRepository = new UserRepository();
 
         if(!$this->isPost()){
@@ -45,16 +51,36 @@ class SecurityController extends AppController{
             setcookie('nick',$cookieNick,time() + (3600 * 24 * 30), "/");
         }
 
+        $_SESSION['user'] = $user;
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
     }
 
     public function logout(){
-        if (isset($_COOKIE['user'])) {
-            setcookie('user', '', time() - (3600 * 24 * 30), "/");
-            $url = "http://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/");
+        session_start();
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
         }
+        session_destroy();
+
+        if (isset($_SERVER['HTTP_COOKIE'])) {
+            $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+            foreach($cookies as $cookie) {
+                $parts = explode('=', $cookie);
+                $name = trim($parts[0]);
+                setcookie($name, '', time()-1000);
+                setcookie($name, '', time()-1000, '/');
+            }
+        }
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 
     public function register(){

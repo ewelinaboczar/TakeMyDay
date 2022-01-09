@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Discover page</title>
 </head>
 <body>
@@ -9,7 +10,9 @@
     <div class="top-photo">
         <div class="left">
             <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <a class="log-out" href="../login"><i class="fas fa-sign-out-alt"></i></a>
+            <form id="submit" action="logout" method="get">
+                <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
+            </form>
         </div>
         <div class="right">
             <div class="logo-home">

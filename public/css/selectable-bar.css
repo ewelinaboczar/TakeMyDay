@@ -149,6 +149,14 @@ main.your-plans-bottom{
 .changing-photo > .button {
     height: 40%;
     display: flex;
+    flex-direction: column;
+}
+.changing-photo form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: end;
+    color: #0E86B0;
 }
 .photo img {
     object-fit: cover;

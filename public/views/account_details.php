@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" type="text/css" href="/public/css/selectable-bar.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <title>Account</title>
 </head>
@@ -10,7 +11,9 @@
     <div class="top-photo">
         <div class="left">
             <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <a class="log-out" href="../login"><i class="fas fa-sign-out-alt"></i></a>
+            <form id="submit" action="logout" method="get">
+                <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
+            </form>
         </div>
         <div class="right">
             <div class="logo-home">
@@ -57,7 +60,18 @@
                             <img src="/public/img/osoba.svg">
                         </div>
                         <div class="button">
-                            <a>change photo</a>
+                            <form id="submit" action="addphoto" method="post" enctype="multipart/form-data">
+                                <div class="messages">
+                                    <?php if(isset($messages)){
+                                        foreach ($messages as $message ){
+                                            echo $message;
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                                <input type="file" name="file">
+                                <a onclick="submit()">save photo</a>
+                            </form>
                         </div>
                     </div>
                     <div class="personal-details">

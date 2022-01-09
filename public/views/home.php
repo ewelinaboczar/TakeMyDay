@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" type="text/css" href="/public/css/plans-home.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <title>Home page</title>
 </head>
@@ -12,14 +13,16 @@
     <div class="top-photo">
         <div class="left">
             <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <a class="log-out" href="login" ><i class="fas fa-sign-out-alt"></i></a>
+            <form id="submit" action="logout" method="get">
+                <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
+            </form>
         </div>
         <div class="right">
             <div class="logo-home">
                 <img src="/public/img/logo.svg">
             </div>
             <div class="person">
-                <div>Hi, <? echo $_COOKIE['nick']?> </div>
+                <div>Hi, <? session_start(); echo $_SESSION['user']->getNick()?> </div>
                 <div>
                     <img src="/public/img/osoba.svg">
                 </div>

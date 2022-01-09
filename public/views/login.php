@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>Login page</title>
 </head>
 
@@ -23,7 +24,7 @@
                 <div>Please login to your account.</div>
             </div>
             <div class="personal-information">
-                <form id="log_id" action="login" method="post">
+                <form id="submit" action="login" method="post">
                     <div class="messages">
                         <?php if(isset($messages)){
                             foreach ($messages as $message ){
@@ -35,16 +36,10 @@
                     <input name="email" type="text" type="email" placeholder="Email">
                     <input name="password" type="password" placeholder="Password">
                     <div class="ok-button">
-                        <a class="active" onclick="log()">Ok</a>
+                        <a class="active" onclick="submit()">Ok</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </body>
-
-<script>
-    function log() {
-        document.getElementById("log_id").submit();
-    }
-</script>
