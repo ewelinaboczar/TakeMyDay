@@ -38,9 +38,9 @@ class DefaultController extends AppController {
     {
         $this->render('discover_results');
     }
-    public function account_details()
+    public function change_account_details()
     {
-        $this->render('account_details');
+        $this->render('change_account_details');
     }
     public function change_password()
     {

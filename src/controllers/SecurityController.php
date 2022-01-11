@@ -7,7 +7,6 @@ require_once __DIR__.'/../repository/UserRepository.php';
 class SecurityController extends AppController{
 
     private $userRepository;
-    private string $cookieName;
 
     public function __construct()
     {
@@ -18,40 +17,38 @@ class SecurityController extends AppController{
 
     public function login(){
         session_start();
+
+        $this->message = null;
+
         if(isset($_SESSION['session'])){
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/home");
         }
-
-        $userRepository = new UserRepository();
 
         if(!$this->isPost()){
             return $this->render('login');
         }
 
         $email = $_POST["email"];
-        $password = md5($_POST["password"]);
-        $user = $userRepository->getUser($email);
+        $password = $_POST["password"];
 
+        try{
+            $user = $this->userRepository->getUser($email);
+        } catch (InvalidArgumentException $exception){
+            return $this->render('login',['messages'=>$exception->getMessage()]);
+        }
         if (!$user){
             return $this->render('login',['messages'=>['User not exist!']]);
         }
         if ($user->getEmail() !== $email && $user->getNick()) {
             return $this->render('login',['messages'=>['User with this email not exist!']]);
         }
-        if ($user->getPassword() !== $password) {
+        if (!password_verify($password, $user->getPassword())) {
             return $this->render('login',['messages'=>['Wrong password!']]);
         }
 
-        $cookieNameValue = $user->getEmail();
-        $cookieNick = $user->getNick();
-
-        if(!isset($_COOKIE[$this->cookieName])){
-            setcookie($this->cookieName,$cookieNameValue,time() + (3600 * 24 * 30), "/");
-            setcookie('nick',$cookieNick,time() + (3600 * 24 * 30), "/");
-        }
-
-        $_SESSION['user'] = $user;
+        if (password_verify($_POST["password"], $user->getPassword()))
+            $_SESSION['user'] = ($_POST['email']);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
@@ -67,6 +64,8 @@ class SecurityController extends AppController{
                 $params["secure"], $params["httponly"]
             );
         }
+
+        unset($_SESSION['user']);
         session_destroy();
 
         if (isset($_SERVER['HTTP_COOKIE'])) {
@@ -102,10 +101,30 @@ class SecurityController extends AppController{
             return $this->render('register', ['messages' => ['Your password should contain more than 8 characters']]);
         }
 
-        $user = new User($email,md5($password),$nick);
+        $npassword = password_hash($password,PASSWORD_DEFAULT);
+
+        $user = new User($email,$npassword,$nick);
+
+        $info=$this->validateEmailNick($user,'register');
 
         $this->userRepository->addUser($user);
 
-        return $this->render('login',['messages' => ['You\'ve been succesfully registrated!']]);
+        if($info==null){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/login");
+        }
+
+    }
+
+    private function validateEmailNick(User $user, $tmp){
+        if($this->userRepository->isEmailAlreadyExist($user->getEmail())){
+            $this->render($tmp,['messages'=>['User with this email already exist!']]);
+            die();
+        }
+        if($this->userRepository->isNickAlreadyExist($user->getNick())){
+            $this->render($tmp,['messages'=>['User with this nick already exist!']]);
+            die();
+        }
+
     }
 }

@@ -6,7 +6,6 @@ class dayPlans{
     private string $location;
     private string $hours;
     private int $comments;
-    private string $faceUrl;
     private string $nick;
 
     public function __construct(int $number, string $imageUrl, string $location, string $hours, int $comments, string $faceUrl, string $nick)
@@ -16,7 +15,6 @@ class dayPlans{
         $this->location = $location;
         $this->hours = $hours;
         $this->comments = $comments;
-        $this->faceUrl = $faceUrl;
         $this->nick = $nick;
     }
 
@@ -68,16 +66,6 @@ class dayPlans{
     public function setComments(int $comments): void
     {
         $this->comments = $comments;
-    }
-
-    public function getFaceUrl(): string
-    {
-        return $this->faceUrl;
-    }
-
-    public function setFaceUrl(string $faceUrl): void
-    {
-        $this->faceUrl = $faceUrl;
     }
 
     public function getNick(): string

@@ -8,25 +8,7 @@
 </head>
 <body>
 <div class="home-container">
-    <div class="top-photo">
-        <div class="left">
-            <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <form id="submit" action="logout" method="get">
-                <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
-            </form>
-        </div>
-        <div class="right">
-            <div class="logo-home">
-                <img src="/public/img/logo.svg">
-            </div>
-            <div class="person">
-                <div>Hi, <? echo $_COOKIE['nick']?> </div>
-                <div>
-                    <img src="/public/img/osoba.svg">
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include 'top-photo.php'; ?>
     <div class="bottom">
         <nav id="menu">
             <ul>

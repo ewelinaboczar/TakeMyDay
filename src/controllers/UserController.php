@@ -11,25 +11,110 @@ class UserController extends AppController{
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $userRepository;
+    private $user_array;
 
-    public function addphoto()
+    public function __construct()
     {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+        $this->user_array = json_decode($_COOKIE['logUser'],true);
+    }
+
+    public function addPhoto()
+    {
+        session_start();
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
                 dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
             );
 
-            $user = new User($_FILES['file']['name']);
+            $user_array = json_decode($_COOKIE['logUser'],true);
+            $user = new User($user_array['email'],$user_array['password'],$user_array['nick']);
 
-            return $this->render('home',['messages'=> $this->messages, 'user'=>$user]);
+            $user->setUserPhoto($_FILES['file']['name']);
+
+            $this->userRepository->addUserPhoto($user);
+
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/account_details");
         }
 
-        $this->render('home',['messages'=> $this->messages]);
+        $this->render('change_account_details',['messages'=> $this->messages]);
     }
 
-    public function completionOfData(){
+    public function addDetails()
+    {
+        session_start();
+        if (!$this->isPost()) {
+            return $this->render('change_account_details');
+        }
 
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+
+        $user = new User($this->user_array['email'],$this->user_array['password'],$this->user_array['nick']);
+
+        $user->setName($name);
+        $user->setSurname($surname);
+
+        if($this->userRepository->isDetailsAlreadyExists($user)){
+            $this->userRepository->updateUserDetails($user);
+        } else {
+            $this->userRepository->addUserDetails($user);
+        }
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/account_details");
+
+    }
+
+    public function account_details()
+    {
+        $details = $this->userRepository->getUser($this->user_array['email']);
+        $this->render('account_details',['details' => $details]);
+    }
+    public function home()
+    {
+        $details = $this->userRepository->getUser($this->user_array['email']);
+        if($this->userRepository->isDetailsAlreadyExists($details)){
+            $this->render('home',['details' => $details]);
+        } else {
+            $this->userRepository->addUserDetails($details);
+            $this->render('home',['details' => $details]);
+        }
+    }
+
+    public function change_pass(){
+        session_start();
+
+        $this->messages=null;
+
+        if(!$this->isPost()){
+            return $this->render('change_password');
+        }
+
+        $pass = $_POST["old_password"];
+        $newpass = $_POST["new_password"];
+        $confnewpass = $_POST["confirmed_password"];
+
+        $user = $this->userRepository->getUser($_SESSION['user']);
+
+        if (!password_verify($pass, $user->getPassword())) {
+            return $this->render('change_password',['messages'=>['You entered the wrong password!']]);
+        }
+        if ($newpass !== $confnewpass) {
+            return $this->render('change_password',['messages'=>['Please provide proper password!']]);
+        }
+        if (strlen($newpass) < 8){
+            return $this->render('change_password', ['messages' => ['Your new password should contain more than 8 characters']]);
+        }
+
+        $npassword = password_hash($newpass,PASSWORD_DEFAULT);
+        $this->userRepository->updateUserPassword($npassword);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/account_details");
     }
 
     private function validate(array $file): bool

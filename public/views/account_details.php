@@ -8,25 +8,8 @@
 </head>
 <body>
 <div class="home-container">
-    <div class="top-photo">
-        <div class="left">
-            <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <form id="submit" action="logout" method="get">
-                <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
-            </form>
-        </div>
-        <div class="right">
-            <div class="logo-home">
-                <img src="/public/img/logo.svg">
-            </div>
-            <div class="person">
-                <div>Hi, <? echo $_COOKIE['nick']?> </div>
-                <div>
-                    <img src="/public/img/osoba.svg">
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include 'top-photo.php'; ?>
+    <?php include 'user_by_cookie.php';?>
     <div class="bottom">
         <nav id="menu">
             <ul>
@@ -50,6 +33,7 @@
         <main class="your-plans-bottom">
             <div class="selectable-bar">
                 <a class="active" href="account_details">Account Details</a>
+                <a class="notactive" href="change_account_details">Change Details</a>
                 <a class="notactive" href="change_password">Change Password</a>
             </div>
             <section class="account">
@@ -57,49 +41,46 @@
                 <div class="box-informations">
                     <div class="changing-photo">
                         <div class="photo">
-                            <img src="/public/img/osoba.svg">
-                        </div>
-                        <div class="button">
-                            <form id="submit" action="addphoto" method="post" enctype="multipart/form-data">
-                                <div class="messages">
-                                    <?php if(isset($messages)){
-                                        foreach ($messages as $message ){
-                                            echo $message;
-                                        }
-                                    }
-                                    ?>
-                                </div>
-                                <input type="file" name="file">
-                                <a onclick="submit()">save photo</a>
-                            </form>
+                            <img src="/public/uploads/<?= $details->getUserPhoto() ?>">
                         </div>
                     </div>
                     <div class="personal-details">
                         <div>
                             <p>nick:</p>
-                            <div><? echo $_COOKIE['nick']?></div>
+                            <div class="bg">
+                                <p><?= $nick ?></p>
+                            </div>
                         </div>
                         <div>
                             <p>name:</p>
-                            <input name="name" type="text">
+                            <div class="bg">
+                                <p><?= $details->getName() ?></p>
+                            </div>
                         </div>
                         <div>
                             <p>surname:</p>
-                            <input name="surname" type="text">
+                            <div class="bg">
+                                <p><?= $details->getSurname() ?></p>
+                            </div>
                         </div>
                         <div>
                             <p>country:</p>
-                            <input name="country" type="text">
+                            <div class="bg">
+                                <p>country</p>
+                            </div>
                         </div>
                         <div>
                             <p>date of birth:</p>
-                            <div>1999-01-01</div>
+                            <div class="bg">
+                                <p>date of birth</p>
+                            </div>
                         </div>
                         <div>
                             <p>email:</p>
-                            <div><? echo $_COOKIE['email']?> </div>
+                            <div class="bg">
+                                <p><?= $details->getEmail() ?></p>
+                            </div>
                         </div>
-                        <a class="save_changes">Save Changes</a>
                     </div>
                 </div>
             </section>

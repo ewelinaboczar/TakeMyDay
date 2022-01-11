@@ -10,6 +10,8 @@ class User
     private $password;
     private $nick;
     private $name;
+    private $dateOfBirth;
+
 
     public function __construct(string $email, string $password, string $nick){
         $this->email = $email;
@@ -52,7 +54,7 @@ class User
         return $this->user_photo;
     }
 
-    public function setUserPhoto($user_photo): void
+    public function setUserPhoto($user_photo)
     {
         $this->user_photo = $user_photo;
     }
@@ -79,5 +81,13 @@ class User
 
     public function getNick(): string{
         return $this->nick;
+    }
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
+    }
+    public function setDateOfBirth($dateOfBirth): void
+    {
+        $this->dateOfBirth = $dateOfBirth;
     }
 }
