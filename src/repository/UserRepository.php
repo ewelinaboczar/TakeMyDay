@@ -10,6 +10,7 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users u 
             LEFT JOIN public.users_details ud ON u.id = ud.id
+            LEFT JOIN public.country c ON ud.country_id = c.country_id
             WHERE email = :email
         ');
         $stmt->bindParam(':email',$email,PDO::PARAM_STR);
@@ -33,6 +34,7 @@ class UserRepository extends Repository
         $new_user->setName($user['name']);
         $new_user->setSurname($user['surname']);
         $new_user->setUserPhoto($user['user_photo']);
+        $new_user->setCountry($user['country_name']);
 
         return $new_user;
     }
@@ -42,7 +44,7 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users WHERE email = :email
         ');
-        $stmt->bindParam(':email',$email,PDO::PARAM_STR);
+        $stmt->bindParam(':email',$email,PDO::PARAM_INT);
         $stmt->execute();
 
         $data=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -104,16 +106,19 @@ class UserRepository extends Repository
         $id = $this->getUserId($_SESSION['user']);
         $name = $user->getName();
         $surname = $user->getSurname();
+        $country_id = $this->getCountryId($user->getCountry());
 
         $stmt = $this->database->connect()->prepare('
             UPDATE public.users_details 
-            SET name = :name, surname = :surname
+            SET name = :name, surname = :surname, country_id =:country_id
             WHERE id = :id
         ');
         $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        $stmt->bindParam(':country_id',$country_id,PDO::PARAM_INT);
         $stmt->bindParam(':name',$name,PDO::PARAM_STR);
         $stmt->bindParam(':surname',$surname,PDO::PARAM_STR);
         $stmt->execute();
+
     }
 
     public function isEmailAlreadyExist(string $email):bool{
@@ -153,7 +158,7 @@ class UserRepository extends Repository
     public function isDetailsAlreadyExists(User $user):bool{
         $id=$this->getUserId($user->getEmail());
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.users_details 
+            SELECT * FROM public.users_details
             WHERE id = :id
         ');
         $stmt->bindParam(':id',$id,PDO::PARAM_STR);
@@ -168,4 +173,15 @@ class UserRepository extends Repository
         return true;
     }
 
+    public function getCountryId(string $country_name): int{
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM public.country c
+            WHERE country_name = :country_name
+        ');
+        $stmt->bindParam(':country_name',$country_name,PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data=$stmt->fetch(PDO::FETCH_ASSOC);
+        return $data['country_id'];
+    }
 }

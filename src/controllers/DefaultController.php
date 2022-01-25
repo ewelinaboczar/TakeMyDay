@@ -1,22 +1,27 @@
 <?php
 
 require_once 'AppController.php';
+require_once __DIR__.'/../repository/CountryRepository.php';
 
 class DefaultController extends AppController {
+
+    private $countryRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->countryRepository = new CountryRepository();
+    }
 
     public function index()
     {
         $this->render('login');
     }
 
-    public function home()
-    {
-        $this->render('home');
-    }
-
     public function discover()
     {
-        $this->render('discover');
+        $countries = $this->countryRepository->getCountries();
+        $this->render('discover',['countries'=>$countries]);
     }
     public function favourite()
     {
@@ -40,7 +45,8 @@ class DefaultController extends AppController {
     }
     public function change_account_details()
     {
-        $this->render('change_account_details');
+        $countries = $this->countryRepository->getCountries();
+        $this->render('change_account_details',['countries'=>$countries]);
     }
     public function change_password()
     {

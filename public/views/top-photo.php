@@ -13,7 +13,7 @@ echo '
             <div class="logo-home">
                 <img src="/public/img/logo.svg">
             </div>
-            <div class="person">
+            <div class="person"">
                 <div>Hi, ';echo $nick ,'</div>
                 <div>
                     <img src="/public/uploads/';echo $photograph,'">

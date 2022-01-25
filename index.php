@@ -9,7 +9,7 @@ Routing::post('register', 'SecurityController');
 Routing::post('login','SecurityController');
 Routing::get('logout','SecurityController');
 
-Routing::get('home','UserController');
+Routing::get('home','DayPlanController');
 Routing::get('discover','DefaultController');
 Routing::get('favourite','DefaultController');
 Routing::get('your_plans','DefaultController');

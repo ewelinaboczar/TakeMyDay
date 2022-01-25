@@ -72,6 +72,14 @@
                                 <p>surname:</p>
                                 <input name="surname" type="text">
                             </div>
+                            <div>
+                                <p>country:</p>
+                                <select name="country" id="country" size="1" form="submit_det">
+                                    <?php foreach($countries as $key): ?>
+                                        <option value="<?=$key['country_name']?>"><?=$key['country_name']?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                             <a class="save_changes" onclick="submit_det()">Save Changes</a>
                         </form>
                     </div>

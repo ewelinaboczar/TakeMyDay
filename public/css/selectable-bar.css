@@ -178,6 +178,9 @@ main.your-plans-bottom{
 .personal-details {
     width: 50%;
 }
+#pass {
+    padding-right: 0em;
+}
 .personal-details form > div, .personal-details > div {
     display: flex;
     flex-direction: row;
@@ -199,13 +202,18 @@ main.your-plans-bottom{
     color: #0080AC;
     padding: 0.5em 0 ;
 }
-.personal-details input {
+.personal-details input, .personal-details #country {
     font: normal normal 600 18px/24px Segoe UI;
-    border-color: #0E86B0;
+    border: none;
     text-decoration: none;
     background: #E2EDFF ;
     color: #0080AC;
-    padding: 0.5em 0 ;
+    padding: 0.5em;
+    width: 236px;
+}
+.personal-details #country {
+    width: 254px;
+    overflow: auto;
 }
 .personal-details a{
     align-self: center;

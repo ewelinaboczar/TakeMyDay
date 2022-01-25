@@ -66,13 +66,7 @@
                         <div>
                             <p>country:</p>
                             <div class="bg">
-                                <p>country</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p>date of birth:</p>
-                            <div class="bg">
-                                <p>date of birth</p>
+                                <p><?= $details->getCountry() ?></p>
                             </div>
                         </div>
                         <div>

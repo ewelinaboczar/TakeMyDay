@@ -17,7 +17,7 @@ section {
     opacity: 1;
 }
 .description {
-    width: 70%;
+    width: 234px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,8 +25,8 @@ section {
     position: relative;
 }
 .plans-home > div > img{
-    width: 40%;
-    height: 100%;
+    width: 178px;
+    height: 136px;
     object-fit: cover;
 }
 .plan-photograph {

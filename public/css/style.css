@@ -469,54 +469,28 @@ main.discover-bottom {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.5em;
+    gap: 1.5em;
 }
 
-.selectable-bar select{
+.selectable-bar select, #country{
     align-self: center;
-    width: 14vw;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
-    display: flex;
-
-
-    font: normal normal 600 18px/24px Segoe UI;
+}
+.selectable-bar select, .submit,.selectable-bar select option, #country option {
+    font: normal normal 600 16px/22px Segoe UI;
     color: #E2EDFF;
 }
-
-.selectable-bar input[type="date"] {
-    align-self: center;
-    width: 10vw;
-    padding: 0.5em 2em;
-    background: transparent;
-    border: 1px solid #FFFFFF;
-    display: flex;
-
-    font: normal normal 600 18px/24px Segoe UI;
-    color: #E2EDFF;
+.selectable-bar select option , #country option{
+    background-color: #904797;
 }
-
-.selectable-bar input[type="time"] {
-    align-self: center;
-    width: 10vw;
-    padding: 0.5em 2em;
-    background: transparent;
-    border: 1px solid #FFFFFF;
-    display: flex;
-
-    font: normal normal 600 18px/24px Segoe UI;
-    color: #E2EDFF;
-}
-
 .submit {
     background: #9C5FA6 0% 0% no-repeat padding-box;
     border-radius: 50px;
-    width: 10vw;
+    width: 5vw;
     text-align: center;
     padding: 0.5em;
-    color: #E2EDFF;
-    font: normal normal 600 18px/24px Segoe UI;
     border: none;
 }
 

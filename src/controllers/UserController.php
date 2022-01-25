@@ -53,11 +53,13 @@ class UserController extends AppController{
 
         $name = $_POST['name'];
         $surname = $_POST['surname'];
+        $country = $_POST['country'];
 
         $user = new User($this->user_array['email'],$this->user_array['password'],$this->user_array['nick']);
 
         $user->setName($name);
         $user->setSurname($surname);
+        $user->setCountry($country);
 
         if($this->userRepository->isDetailsAlreadyExists($user)){
             $this->userRepository->updateUserDetails($user);
@@ -73,16 +75,6 @@ class UserController extends AppController{
     {
         $details = $this->userRepository->getUser($this->user_array['email']);
         $this->render('account_details',['details' => $details]);
-    }
-    public function home()
-    {
-        $details = $this->userRepository->getUser($this->user_array['email']);
-        if($this->userRepository->isDetailsAlreadyExists($details)){
-            $this->render('home',['details' => $details]);
-        } else {
-            $this->userRepository->addUserDetails($details);
-            $this->render('home',['details' => $details]);
-        }
     }
 
     public function change_pass(){

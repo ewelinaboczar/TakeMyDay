@@ -36,178 +36,43 @@
                 <p class="txt1">The most popular plans for the day</p>
                 <p class="txt2">TOP 10 in Poland</p>
                 <section class="plans-home">
+                    <?php $id=1;
+                    foreach ($plans as $plan): ?>
                     <div id="plan1">
-                        <img src="/public/img/uploads/photo.jpg">
+                        <img src="/public/uploads/<?= $plan->getImage(); ?>">
                         <div class="plan-photograph" >
-                            <p>1</p>
+                            <p><?php echo $id; $id+=1; ?></p>
                         </div>
                         <div class="description">
                             <div class="plan-informations">
                                 <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
+                                    <div><i class="fas fa-map-marker-alt"></i><?= $plan->getCity(); ?></div>
+                                    <div><i class="fas fa-clock"></i><?= $plan->getDate(); ?></div>
+                                    <div><i class="fas fa-comment"></i><?= $plan->getComments(); ?></div>
                                     <div>
                                         <i class="fas fa-user"></i>
-                                        nick
+                                        <?= $plan->getCreatedBy(); ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="likes">
                                 <i class="fas fa-heart"></i>
-                                <p>300</p>
+                                <p><?= $plan->getLikes(); ?></p>
                             </div>
                         </div>
                     </div>
-                    <div id="plan2">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>2</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="plan3">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>3</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="plan4">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>4</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="plan5">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>5</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="plan6">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>6</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="plan7">
-                        <img src="/public/img/uploads/photo.jpg">
-                        <div class="plan-photograph" >
-                            <p>7</p>
-                        </div>
-                        <div class="description">
-                            <div class="plan-informations">
-                                <div>
-                                    <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                    <div><i class="fas fa-clock"></i>time</div>
-                                    <div><i class="fas fa-comment"></i>comments</div>
-                                    <div>
-                                        <i class="fas fa-user"></i>
-                                        nick
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="likes">
-                                <i class="fas fa-heart"></i>
-                                <p>300</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </section>
             </div>
             <div class="right">
                 <div class="counter">
                     <div class="left">
                         <p>Day plans made:</p>
-                        <div class="number">180</div>
+                        <div class="number"><?php echo $plansCounter; ?></div>
                     </div>
                     <div class="right">
                         <p>Cities with plans:</p>
-                        <div class="number">180</div>
+                        <div class="number"><?php echo $citiesCounter; ?></div>
                     </div>
                 </div>
                 <p class="txt2">TOP 10 Viral</p>

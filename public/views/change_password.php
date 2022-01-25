@@ -47,15 +47,15 @@
                                 }
                                 ?>
                             </div>
-                            <div>
+                            <div id="pass">
                                 <p>old password:</p>
                                 <input name="old_password" type="password">
                             </div>
-                            <div>
+                            <div id="pass">
                                 <p>new password:</p>
                                 <input name="new_password" type="password">
                             </div>
-                            <div>
+                            <div id="pass">
                                 <p>confirm password:</p>
                                 <input name="confirmed_password" type="password">
                             </div>

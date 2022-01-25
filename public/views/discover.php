@@ -33,22 +33,11 @@
                 <form action="/discover_results">
                     <label for="city">
                         <select name="city" id="city" size="1">
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
-                            <option value="miasto">Miasto</option>
+                            <?php foreach($countries as $key): ?>
+                                <option value="miasto"><?=$key['country_name']?></option>
+                            <?php endforeach; ?>
                         </select>
                     </label>
-                    <br><br>
-                    <label for="date"><input name="date" type="date"></label>
-                    <br><br>
-                    <label for="time"><input name="time" type="time"></label>
                     <br><br>
                     <input class="submit" type="submit" value="OK">
                 </form>
