@@ -73,8 +73,14 @@ class UserController extends AppController{
 
     public function account_details()
     {
-        $details = $this->userRepository->getUser($this->user_array['email']);
-        $this->render('account_details',['details' => $details]);
+        if($this->ifCookieExists()){
+            $details = $this->userRepository->getUser($this->user_array['email']);
+            $this->render('account_details',['details' => $details]);
+        }
+        else{
+            $this->render('account_details');
+        }
+
     }
 
     public function change_pass(){
@@ -109,6 +115,14 @@ class UserController extends AppController{
         header("Location: {$url}/account_details");
     }
 
+    public function ifCookieExists():bool
+    {
+        if (!isset($_COOKIE['logUser'])) {
+            return false;
+        }
+        return true;
+    }
+
     private function validate(array $file): bool
     {
         if($file['size'] > self::MAX_FILE_SIZE){
@@ -122,4 +136,5 @@ class UserController extends AppController{
         return true;
     }
 }
+
 

@@ -1,9 +1,6 @@
-section {
+.specific-plans, #plan-result{
     display: flex;
     flex-direction: column;
-}
-
-.specific-plans{
     justify-content: flex-start;
     align-items: center;
     padding: 2em;
@@ -41,23 +38,26 @@ main.your-plans-bottom{
     background-color: #E4E4E4;
     color: #0E86B0;
 }
-.specific-plans > div{
+.specific-plans > div, #cont{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 80%;
-    height: 25%;
+    align-items: center;
+    width: 500px;
+    height: 180px;
 }
-.specific-plans img {
+.specific-plans img , #plan-result img{
     border-radius: 15px 0 0 15px;
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
 }
 .heart {
     position: relative;
 }
 .heart p {
     position: absolute;
-    left: -15.5em;
-    top: 6em;
+    left: -14.5em;
     padding: 0.7em;
     background-color: #E6EFFE;
     border-radius: 50%;
@@ -85,7 +85,7 @@ main.your-plans-bottom{
 .plan-informations > div {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 1em 4em;
+    grid-gap: 0.5em 4em;
     font: normal normal normal 17px/20px Segoe UI;
     color: #E2EDFF;
 }
@@ -212,7 +212,6 @@ main.your-plans-bottom{
     width: 236px;
 }
 .personal-details #country {
-    width: 254px;
     overflow: auto;
 }
 .personal-details a{
@@ -228,7 +227,6 @@ main.your-plans-bottom{
     font: normal normal 600 18px/24px Segoe UI;
     color: #FFFFFF;
 }
-/* ------------------- Account Change Password ------------------- */
 
 
 

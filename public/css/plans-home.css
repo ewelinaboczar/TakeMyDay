@@ -1,4 +1,4 @@
-section {
+section, #plan-result {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -7,14 +7,18 @@ section {
     margin-right: 30px;
     gap: 1em;
 }
-.plans-home > div {
+.plans-home > div , #plan-result > div {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     position: relative;
     background: #A062A6 0% 0% no-repeat padding-box;
     border-radius: 15px;
-    opacity: 1;
+    gap:2em;
+}
+#plan-result > div{
+    width: 80%;
+    align-self: center;
 }
 .description {
     width: 234px;
@@ -24,11 +28,18 @@ section {
     margin: 1em;
     position: relative;
 }
-.plans-home > div > img{
+.plans-home > div > img {
     width: 178px;
-    height: 136px;
+    height: 100%;
     object-fit: cover;
 }
+
+#plan-result > div > img{
+    width: 225px;
+    height: 176px;
+    object-fit: cover;
+}
+
 .plan-photograph {
     position: absolute;
     bottom: 0;
@@ -59,6 +70,11 @@ section {
     justify-content: space-around;
     gap: 0.5em;
 }
+#plan-temp > div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 0.5em 2em;
+}
 .plan-informations > div > div {
     display: flex;
     flex-direction: row;
@@ -70,6 +86,7 @@ section {
     font: normal normal normal 17px/20px Segoe UI;
     letter-spacing: 0px;
     color: #E2EDFF;
+    width: max-content;
 }
 .likes{
     width: 30%;
@@ -90,6 +107,22 @@ section {
 .likes{
     display: flex;
     flex-direction: column;
+}
+
+/* ------------------- Discover page ------------------- */
+#browser{
+    align-self: center;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    color: #3b9cbe;
+    font: normal normal 600 16px/22px Segoe UI;
+    width: 25vw;
+    padding: 0.5em 2em;
+    text-decoration: none;
+}
+input::placeholder{
+    color: #3b9cbe;
+    font: normal normal 600 16px/22px Segoe UI;
 }
 
 

@@ -1,0 +1,25 @@
+#map{
+    width: 475px;
+    height: 50vh;
+    overflow: hidden;
+    border-color: #0077AF;
+}
+.map-container {
+    width: 50%;
+    flex-direction: column !important;
+    gap:0.5em!important;
+}
+.mapboxgl-popup {
+    max-width: 200px;
+}
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.marker {
+    background-image: url('../uploads/icon.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

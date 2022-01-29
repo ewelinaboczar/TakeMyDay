@@ -38,17 +38,22 @@ class SecurityController extends AppController{
             return $this->render('login',['messages'=>$exception->getMessage()]);
         }
         if (!$user){
+            $this->logout();
             return $this->render('login',['messages'=>['User not exist!']]);
         }
         if ($user->getEmail() !== $email && $user->getNick()) {
+            $this->logout();
             return $this->render('login',['messages'=>['User with this email not exist!']]);
         }
         if (!password_verify($password, $user->getPassword())) {
+            $this->logout();
             return $this->render('login',['messages'=>['Wrong password!']]);
         }
 
         if (password_verify($_POST["password"], $user->getPassword()))
+        {
             $_SESSION['user'] = ($_POST['email']);
+        }
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");

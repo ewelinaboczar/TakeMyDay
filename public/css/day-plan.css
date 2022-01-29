@@ -1,0 +1,122 @@
+
+#details, #day_plan, #milestones-details {
+    display: flex;
+    flex-direction: column;
+}
+
+#details > div ,#zero>div, #dp > div,#milestones-details > div, #milestones-details > div > div{
+    display: flex;
+    flex-direction: row;
+}
+#details > div{
+    justify-content: space-between;
+}
+#dp{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    justify-content: flex-start;
+    overflow: auto;
+}
+#dp > div {
+    margin: 1em;
+    justify-content: center;
+    gap:2em;
+}
+#day_plan {
+    width: 50%;
+    gap:2em;
+    margin-top: 1em;
+}
+#milestones {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#tittle{
+    color: #0077AFD1;
+    font: normal normal 600 30px/40px Segoe UI;
+    text-shadow: 0px 3px 6px #00000029;
+    text-transform: uppercase;
+    margin:0.5em;
+    align-self: center;
+    letter-spacing: 2.45px;
+}
+#details {
+    gap: 0.5em;
+    font: normal normal bold 21px/28px Segoe UI;
+    color: #E2EDFF;
+    background: #AF9EC1 0% 0% no-repeat padding-box;
+    padding: 1em 2em;
+    box-shadow: 0px 3px 6px #00000029;
+}
+#img {
+    position: relative;
+
+}
+#day_plan img{
+    border-radius: 15px;
+    width: 475px;
+    height: 100%;
+    object-fit: cover;
+}
+#heart-fav{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0.5em;
+    top: 9.2em;
+    color: #9C5FA6;
+    background: #E6EFFE 0% 0% no-repeat padding-box;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    font-size: 30px;
+}
+#milestones-details,#zero>div {
+    background: #FFFFFF;
+    padding: 1em 2em;
+    width: 90%;
+    gap: 2em;
+}
+#zero>div{
+    padding:0.5em 2em;
+}
+#milestones-details > div{
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+#milestone-number,#zero p{
+
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
+#milestone-number p, #zero p{
+    margin: 0;
+    padding:0.5em;
+    background: #FFFFFF;
+    border-radius: 50% 0 0 50%;
+    color: #0077AF;
+    font: normal normal 600 19px/26px Segoe UI;
+}
+#milestones > div>div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+}
+#milestones-details > div > div, #zero > div{
+    gap: 2em;
+    color: #0077AF;
+    font: normal normal 600 19px/26px Segoe UI;
+}
+#bg-color{
+    background: #AF9EC1 0% 0% no-repeat padding-box;
+    padding: 1em;
+    height: -webkit-fill-available;
+    overflow: auto;
+}
+

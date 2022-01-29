@@ -38,7 +38,7 @@
                 <p>
                     Create Your New Day Plan
                 </p>
-                <a class="start-button" href="add_plan">Let's start</a>
+                <a class="start-button" href="add_plan">Start using location</a>
             </div>
         </main>
     </div>

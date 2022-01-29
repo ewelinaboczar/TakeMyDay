@@ -204,7 +204,7 @@ body {
     flex-direction: column;
 }
 .top-photo{
-    max-height: 40%;
+    max-height: 50%;
     width: auto;
     background-image: url('../img/pagephoto.svg');
     background-repeat: no-repeat;
@@ -221,7 +221,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 2em;
 }
 
 .top-photo > .left{
@@ -231,7 +230,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin: 1em 3em;
+    margin: 1em 4em;
     gap: 10px;
 }
 .top-photo > .right{
@@ -241,8 +240,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 1em;
-    gap: 2em;
+    margin: 1em 3em 3em 3em ;
+    gap: 3em;
 }
 .top-photo > .left i{
     font-size: 2em;
@@ -362,7 +361,7 @@ body {
 
 .bottom main.home-bottom > .right{
      padding-bottom: 2em;
-     width: 50vw;
+     width: 50%;
 
      display: flex;
      flex-direction: column;
@@ -386,13 +385,18 @@ body {
     background: #AFC9F0 0% 0% no-repeat padding-box;
     border-radius: 20px 0 0 20px;
     margin: 0.5em 0em 0.5em 0.5em;
-
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
 .counter div.right {
     width: 100%;
     background: #AFC9F0 0% 0% no-repeat padding-box;
     border-radius: 0 20px 20px 0 ;
     margin: 0.5em 0.5em 0.5em 0em;
+    display: flex;
+    flex-direction: column;
+
 }
 .counter p {
     text-align: center;
@@ -403,20 +407,17 @@ body {
 .counter div.number{
     width: 60%;
     text-align: center;
+    align-self: center;
     text-decoration: none;
     padding: 0.5em;
+    margin-bottom: 1em;
     font: normal normal bold 20px/27px Segoe UI;
     color: #007EAC;
-    text-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
-    margin: 20px 20px 20px 45px;
 
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
     border-radius: 15px;
 
-}
-.fa, .fas{
-    width: 1em;
 }
 .bottom main.home-bottom > .right > .plans-home > div{
     background: #007EAC;
@@ -424,7 +425,7 @@ body {
 
 .bottom main.home-bottom > .left{
     padding-bottom: 2em;
-    width: 50vw;
+    width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -464,7 +465,7 @@ main.discover-bottom {
     background: #0E86B0 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
 }
-.selectable-bar > form {
+.selectable-bar > form , #discover-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -511,7 +512,7 @@ div.under p, div.under-create p{
     color: #0E86B0;
 }
 div.under-create a{
-    font: normal normal 600 18px/24px Segoe UI;
+    font: normal normal 600 13px/18px Segoe UI;
     color: #FAFAFA;
     background: #0E86B0 0% 0% no-repeat padding-box;
     border-radius: 15px;

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/add-plan.css">
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/script.js" defer></script>
+    <script type="text/javascript" src="./public/js/addplan.js" defer></script>
     <title>Your plans page</title>
 </head>
 <body>
@@ -40,39 +41,34 @@
                     <p>1</p>
                 </div>
                 <form class="component">
-                    <div class="loc">
-                        Location:
-                        <input name="location" type="text">
-                    </div>
-                    <div class="type">
-                        Location type:
-                        <input name="location-type" type="text">
-                    </div>
-                    <div class="des">
-                        Description:
-                        <input name="plan-description" type="text">
-                    </div>
-                    <div class="buttons">
-                        <p>Time:   <span id="time"></span></p>
-                        <div>
-                            <a class="add"><i class="fas fa-plus"></i></a>
-                            <a class="finish">Finish</a>
+                    <div class="new_milestone">
+                        <div class="loc">City:
+                            <input list="cities" name="city" id="city" placeholder="<?= $locationInfo['city'];?>" disabled>
+                        </div>
+                        <div class="place">Location:
+                            <input name="place_location" id="place_location" type="text" placeholder="McDonald, Szewska 2, 31-009 Kraków..." required>
+                        </div>
+                        <div class="type">Location type:
+                            <input list="milestone_types" name="milestone_type" id="milestone_type" placeholder="restaurant..." required>
+                            <datalist id="milestone_types">
+                                <?php foreach($milestone_type as $key): ?>
+                                    <option name="type_milestone" value="<?=$key['milestone_type']?>"></option>
+                                <?php endforeach; ?>
+                            </datalist>
+                        </div>
+                        <div class="des">Description:
+                            <input id="plan-description" name="plan-description" type="text" placeholder="It was really delicious burger...">
                         </div>
                     </div>
+                        <div class="buttons">
+                            <p>Time:   <span id="time"></span></p>
+                            <div>
+                                <a class="add" onclick="saveMilestone()"><i class="fas fa-plus" aria-disabled="false"></i></a>
+                                <a class="final-plan" onclick="saveDayPlan()">Final Plan</a>
+                            </div>
+                        </div>
                 </form>
             </section>
         </main>
     </div>
 </body>
-
-<script>
-    const datetime = new Date().toLocaleTimeString();
-
-    function refreshTime() {
-        const datetime = new Date().toLocaleTimeString();
-        console.log(datetime);
-        document.getElementById("time").textContent = datetime;
-    }
-    setInterval(refreshTime, 1000);
-
-</script>

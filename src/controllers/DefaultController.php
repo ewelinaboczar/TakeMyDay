@@ -20,8 +20,8 @@ class DefaultController extends AppController {
 
     public function discover()
     {
-        $countries = $this->countryRepository->getCountries();
-        $this->render('discover',['countries'=>$countries]);
+        $city = $this->countryRepository->getCity();
+        $this->render('discover',['city'=>$city]);
     }
     public function favourite()
     {
@@ -34,10 +34,6 @@ class DefaultController extends AppController {
     public function create_plan()
     {
         $this->render('create_plan');
-    }
-    public function add_plan()
-    {
-        $this->render('add_plan');
     }
     public function discover_results()
     {
@@ -52,4 +48,5 @@ class DefaultController extends AppController {
     {
         $this->render('change_password');
     }
+
 }

@@ -15,12 +15,16 @@ Routing::get('favourite','DefaultController');
 Routing::get('your_plans','DefaultController');
 Routing::get('create_plan','DefaultController');
 Routing::get('change_password','DefaultController');
-Routing::get('add_plan','DefaultController');
+Routing::get('add_plan','DayPlanController');
 Routing::get('account_details','UserController');
 Routing::get('change_account_details','DefaultController');
 Routing::get('discover_results','DefaultController');
+Routing::get('places','DayPlanController');
 
 Routing::post('addPhoto','UserController');
 Routing::post('addDetails','UserController');
 Routing::post('change_pass','UserController');
+Routing::post('search','DayPlanController');
+Routing::post('typeMilestones','DayPlanController');
+Routing::post('day_plan','DayPlanController');
 Routing::run($path);

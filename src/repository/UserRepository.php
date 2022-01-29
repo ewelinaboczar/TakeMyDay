@@ -39,7 +39,7 @@ class UserRepository extends Repository
         return $new_user;
     }
 
-    private function getUserId(string $email): int{
+    public function getUserId(string $email): int{
 
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users WHERE email = :email

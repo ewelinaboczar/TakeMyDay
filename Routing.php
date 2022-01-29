@@ -5,6 +5,7 @@ require_once 'src/controllers/SecurityController.php';
 require_once 'src/controllers/UserController.php';
 require_once 'src/controllers/DayPlanController.php';
 
+
 class Routing {
     public static $routes;
 

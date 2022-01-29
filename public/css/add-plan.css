@@ -1,6 +1,7 @@
 .add-plan {
     gap: 0.5em;
     margin-top: 2em;
+    margin-bottom: 2em;
     height: 80%;
     display: flex;
     flex-direction: row;
@@ -29,7 +30,7 @@
     padding: 1.5em;
     gap: 1em;
 }
-.component > .loc,.type,.des {
+.component > div > .loc,.type,.des,.place {
     color: #FFFFFF;
     font: normal normal 600 15px/20px Segoe UI;
     display: flex;
@@ -37,13 +38,13 @@
     gap: 0.5em;
     margin-bottom: 1em;
 }
-.component input{
+.component > div input{
     align-self: center;
     width: 90%;
     padding: 0.5em;
     font: normal normal 600 15px/20px Segoe UI;
 }
-.component > .buttons {
+.component >  .buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

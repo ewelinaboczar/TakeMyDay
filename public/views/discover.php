@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/plans-home.css">
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/script.js" defer></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>Discover page</title>
 </head>
 <body>
@@ -29,20 +31,17 @@
             </ul>
         </nav>
         <main class="discover-bottom">
-            <div class="selectable-bar">
-                <form action="/discover_results">
-                    <label for="city">
-                        <select name="city" id="city" size="1">
-                            <?php foreach($countries as $key): ?>
-                                <option value="miasto"><?=$key['country_name']?></option>
+            <div class="selectable-bar" id="discover-bar">
+                <label for="city">
+                    <input list="browsers" name="browser" id="browser" placeholder="City..">
+                        <datalist id="browsers" >
+                            <?php foreach($city as $key): ?>
+                                <option id="city" value="<?=$key['city_name']?>"></option>
                             <?php endforeach; ?>
-                        </select>
-                    </label>
-                    <br><br>
-                    <input class="submit" type="submit" value="OK">
-                </form>
+                        </datalist>
+                </label>
             </div>
-            <div class="under">
+            <div class="under" id="plan-result">
                 <p>
                     Find your best day plan
                 </p>
@@ -52,3 +51,51 @@
     </div>
 </div>
 </body>
+
+<template id="plan-template">
+    <div id="">
+        <img src="">
+        <div class="plan-photograph" >
+            <p><i class="far fa-heart"></i></p>
+        </div>
+        <div class="description">
+            <div class="plan-informations" id="plan-temp">
+                <div>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div id="location"></div>
+                    </div>
+                    <div>
+                        <i class="fas fa-calendar-check"></i>
+                        <div id="date"></div>
+                    </div>
+                    <div>
+                        <i class="fas fa-clock"></i>
+                        <div id="time">time</div>
+                    </div>
+                    <div>
+                        <i class="fas fa-comment"></i>
+                        <div id="comments"></div>
+                    </div>
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <div id="nick"></div>
+                    </div>
+                    <div>
+                        <i class="fas fa-walking"></i>
+                        <div id="milestones">6 milestones of the day</div>
+                    </div>
+                    <div>
+                        <i class="fas fa-route"></i>
+                        <div id="map">notavailable</div>
+                    </div>
+                    <div>
+                        <i class="fas fa-heart"></i>
+                        <div id="likes">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+

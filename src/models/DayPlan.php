@@ -9,12 +9,40 @@ class DayPlan{
     private $likes;
     private $image;
     private $date;
+    private $milestones;
+    private $map;
 
     public function __construct($city)
     {
         $this->city = $city;
     }
 
+    public function getPlanid()
+    {
+        return $this->planid;
+    }
+    public function setPlanid($planid): void
+    {
+        $this->planid = $planid;
+    }
+
+    public function getMap()
+    {
+        return $this->map;
+    }
+
+    public function setMap($map): void
+    {
+        $this->map = $map;
+    }
+    public function getMilestones()
+    {
+        return $this->milestones;
+    }
+    public function setMilestones($milestones): void
+    {
+        $this->milestones = $milestones;
+    }
     public function getCity()
     {
         return $this->city;
