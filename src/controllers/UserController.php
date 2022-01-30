@@ -1,13 +1,14 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__.'/../models/User.php';
-require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../repository/UserRepository.php';
 
-class UserController extends AppController{
+class UserController extends AppController
+{
 
-    const MAX_FILE_SIZE = 1024*1024;
-    const SUPPORTED_TYPES = ['image/png','image/jpg'];
+    const MAX_FILE_SIZE = 1024 * 1024;
+    const SUPPORTED_TYPES = ['image/png', 'image/jpg'];
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
@@ -18,20 +19,20 @@ class UserController extends AppController{
     {
         parent::__construct();
         $this->userRepository = new UserRepository();
-        $this->user_array = json_decode($_COOKIE['logUser'],true);
+        $this->user_array = json_decode($_COOKIE['logUser'], true);
     }
 
     public function addPhoto()
     {
         session_start();
-        if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
+        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
+                dirname(__DIR__) . self::UPLOAD_DIRECTORY . $_FILES['file']['name']
             );
 
-            $user_array = json_decode($_COOKIE['logUser'],true);
-            $user = new User($user_array['email'],$user_array['password'],$user_array['nick']);
+            $user_array = json_decode($_COOKIE['logUser'], true);
+            $user = new User($user_array['email'], $user_array['password'], $user_array['nick']);
 
             $user->setUserPhoto($_FILES['file']['name']);
 
@@ -41,7 +42,7 @@ class UserController extends AppController{
             header("Location: {$url}/account_details");
         }
 
-        $this->render('change_account_details',['messages'=> $this->messages]);
+        $this->render('change_account_details', ['messages' => $this->messages]);
     }
 
     public function addDetails()
@@ -55,13 +56,13 @@ class UserController extends AppController{
         $surname = $_POST['surname'];
         $country = $_POST['country'];
 
-        $user = new User($this->user_array['email'],$this->user_array['password'],$this->user_array['nick']);
+        $user = new User($this->user_array['email'], $this->user_array['password'], $this->user_array['nick']);
 
         $user->setName($name);
         $user->setSurname($surname);
         $user->setCountry($country);
 
-        if($this->userRepository->isDetailsAlreadyExists($user)){
+        if ($this->userRepository->isDetailsAlreadyExists($user)) {
             $this->userRepository->updateUserDetails($user);
         } else {
             $this->userRepository->addUserDetails($user);
@@ -73,22 +74,22 @@ class UserController extends AppController{
 
     public function account_details()
     {
-        if($this->ifCookieExists()){
+        if ($this->ifCookieExists()) {
             $details = $this->userRepository->getUser($this->user_array['email']);
-            $this->render('account_details',['details' => $details]);
-        }
-        else{
+            $this->render('account_details', ['details' => $details]);
+        } else {
             $this->render('account_details');
         }
 
     }
 
-    public function change_pass(){
+    public function change_pass()
+    {
         session_start();
 
-        $this->messages=null;
+        $this->messages = null;
 
-        if(!$this->isPost()){
+        if (!$this->isPost()) {
             return $this->render('change_password');
         }
 
@@ -99,23 +100,23 @@ class UserController extends AppController{
         $user = $this->userRepository->getUser($_SESSION['user']);
 
         if (!password_verify($pass, $user->getPassword())) {
-            return $this->render('change_password',['messages'=>['You entered the wrong password!']]);
+            return $this->render('change_password', ['messages' => ['You entered the wrong password!']]);
         }
         if ($newpass !== $confnewpass) {
-            return $this->render('change_password',['messages'=>['Please provide proper password!']]);
+            return $this->render('change_password', ['messages' => ['Please provide proper password!']]);
         }
-        if (strlen($newpass) < 8){
+        if (strlen($newpass) < 8) {
             return $this->render('change_password', ['messages' => ['Your new password should contain more than 8 characters']]);
         }
 
-        $npassword = password_hash($newpass,PASSWORD_DEFAULT);
+        $npassword = password_hash($newpass, PASSWORD_DEFAULT);
         $this->userRepository->updateUserPassword($npassword);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/account_details");
     }
 
-    public function ifCookieExists():bool
+    public function ifCookieExists(): bool
     {
         if (!isset($_COOKIE['logUser'])) {
             return false;
@@ -125,11 +126,11 @@ class UserController extends AppController{
 
     private function validate(array $file): bool
     {
-        if($file['size'] > self::MAX_FILE_SIZE){
+        if ($file['size'] > self::MAX_FILE_SIZE) {
             $this->messages[] = 'File is too large';
             return false;
         }
-        if(!isset($file['type']) && !in_array($file['type'],self::SUPPORTED_TYPES)){
+        if (!isset($file['type']) && !in_array($file['type'], self::SUPPORTED_TYPES)) {
             $this->messages[] = 'File type is not supported';
             return false;
         }

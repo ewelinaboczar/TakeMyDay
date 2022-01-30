@@ -45,7 +45,7 @@
                 <p>
                     Find your best day plan
                 </p>
-                <a href="#"><i class="fas fa-map-pin"></i>Use your location</a>
+                <a href="#" class="uselocation"><i class="fas fa-map-pin"></i>Use your location</a>
             </div>
         </main>
     </div>
@@ -53,7 +53,7 @@
 </body>
 
 <template id="plan-template">
-    <div id="">
+    <a id="" class="templ-a">
         <img src="">
         <div class="plan-photograph" >
             <p><i class="far fa-heart"></i></p>
@@ -96,6 +96,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </template>
 

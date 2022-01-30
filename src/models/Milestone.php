@@ -1,6 +1,7 @@
 <?php
 
 class Milestone{
+    private $milestone_id;
     private $milestone_location;
     private $milestone_time;
     private $milestone_description;
@@ -48,6 +49,14 @@ class Milestone{
     public function setMilestoneType($milestone_type): void
     {
         $this->milestone_type = $milestone_type;
+    }
+    public function getMilestoneId()
+    {
+        return $this->milestone_id;
+    }
+    public function setMilestoneId($milestone_id): void
+    {
+        $this->milestone_id = $milestone_id;
     }
 
 }

@@ -1,10 +1,16 @@
-html{
+html {
     box-sizing: border-box;
 }
+
+a{
+    text-decoration: none;
+}
+
 body {
     margin: 0;
     overflow: auto;
 }
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -15,20 +21,23 @@ body {
     justify-content: center;
     align-items: center;
 }
-.tlo{
+
+.tlo {
     width: 55%;
     height: 100%;
     background-image: url('../img/tlo.svg');
     background-size: cover;
 }
+
 .logo {
-    transform: scale(0.4,0.4);
+    transform: scale(0.4, 0.4);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     text-align: center;
 }
+
 .register-container {
     width: 45%;
     height: 95%;
@@ -36,7 +45,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap:0.5em;
+    gap: 0.5em;
 
     background: white;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -51,7 +60,7 @@ body {
     color: #0077AFD1;
 }
 
-.login-container{
+.login-container {
     width: 45%;
     height: 95%;
     display: flex;
@@ -75,7 +84,7 @@ body {
 }
 
 
-.upper-buttons{
+.upper-buttons {
     width: 80%;
     height: 5%;
     display: flex;
@@ -85,7 +94,8 @@ body {
     gap: 10px;
     margin-top: 30px;
 }
-.text-welcome{
+
+.text-welcome {
     width: 80%;
     height: 10%;
     display: flex;
@@ -99,7 +109,8 @@ body {
     letter-spacing: 0px;
     color: #0077AFD1;
 }
-.text-upper{
+
+.text-upper {
     width: 80%;
     display: flex;
     justify-content: left;
@@ -109,6 +120,7 @@ body {
     letter-spacing: 0px;
     color: #0077AFD1;
 }
+
 .personal-information form {
     width: 80%;
     display: flex;
@@ -116,9 +128,11 @@ body {
     justify-content: left;
     align-self: start;
 }
-.personal-information{
+
+.personal-information {
     width: 80%;
 }
+
 .personal-information input {
     background-color: transparent;
     width: 120%;
@@ -132,13 +146,14 @@ body {
     letter-spacing: 0px;
     color: #0077AFD1;
 }
-.personal-information input::placeholder{
+
+.personal-information input::placeholder {
     font: normal normal 600 15px/20px Segoe UI;
     letter-spacing: 0px;
     color: #0077AFD1;
 }
 
-.ok-button{
+.ok-button {
     width: 125%;
     height: 20%;
     margin-top: 0.5em;
@@ -147,6 +162,7 @@ body {
     align-items: flex-end;
 
 }
+
 .ok-button a.active {
     background-color: #904797;
     border-radius: 15px;
@@ -173,6 +189,7 @@ body {
     letter-spacing: 0px;
     color: #087CB1;
 }
+
 .upper-buttons a.notactive:hover:not(.active) {
     background-color: #904797;
     align-self: center;
@@ -183,6 +200,7 @@ body {
     letter-spacing: 0px;
     color: #E2EDFF;
 }
+
 .upper-buttons a.active {
     background-color: #904797;
     border-radius: 15px;
@@ -195,7 +213,7 @@ body {
     color: #E2EDFF;
 }
 
-.home-container{
+.home-container {
     width: 100vw;
     height: 100vh;
     background: transparent linear-gradient(180deg, #FFFFFF 0%, #FDFDFD 47%, #D2D2D2 100%, #E8E8E8 100%) 0% 0% no-repeat padding-box;
@@ -203,19 +221,21 @@ body {
     display: flex;
     flex-direction: column;
 }
-.top-photo{
+
+.top-photo {
     max-height: 50%;
     width: auto;
     background-image: url('../img/pagephoto.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius:0px 0px 40px 40px;
+    border-radius: 0px 0px 40px 40px;
     box-shadow: 0px 3px 6px #00000029;
 
     display: flex;
     justify-content: space-between;
 }
-.bottom{
+
+.bottom {
     height: 60vw;
     width: 100vw;
     display: flex;
@@ -223,7 +243,7 @@ body {
     justify-content: center;
 }
 
-.top-photo > .left{
+.top-photo > .left {
     max-width: 20%;
     height: auto;
 
@@ -233,63 +253,72 @@ body {
     margin: 1em 4em;
     gap: 10px;
 }
-.top-photo > .right{
+
+.top-photo > .right {
     max-width: 20%;
     height: auto;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 1em 3em 3em 3em ;
+    margin: 1em 3em 3em 3em;
     gap: 3em;
 }
-.top-photo > .left i{
+
+.top-photo > .left i {
     font-size: 2em;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 15px;
     opacity: 0.85;
     padding: 0.3em;
 }
-.top-photo > .left  a{
+
+.top-photo > .left a {
     color: #007EAC;
 }
-.top-photo > .logo-home{
+
+.top-photo > .logo-home {
     height: 100%;
 }
+
 .logo-home {
     align-self: center;
     max-width: 100%;
     height: 60%;
 }
-.right > .person{
+
+.right > .person {
     width: 100%;
     height: 40%;
 
     display: flex;
     align-items: center;
     text-align: center;
-    gap:1em;
+    gap: 1em;
     font: normal normal 600 20px/27px Segoe UI;
     letter-spacing: 0.9px;
     color: #FDFDFD;
 }
-.person :last-child{
+
+.person :last-child {
     width: 150px;
     height: auto;
     border-radius: 50%;
 }
-.person :first-child{
+
+.person :first-child {
     width: 70px;
     height: 70px;
     display: flex;
     align-items: center;
 }
-.bottom > nav{
+
+.bottom > nav {
     width: 20%;
     height: 100%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
-    border-radius:0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;
     opacity: 0.85;
 
     display: flex;
@@ -297,6 +326,7 @@ body {
     justify-content: flex-start;
     align-self: center;
 }
+
 .bottom > nav a {
     display: inline-block;
     line-height: 2em;
@@ -307,27 +337,32 @@ body {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
-.bottom > nav a.notactive:hover{
+
+.bottom > nav a.notactive:hover {
     background: #904797 0% 0% no-repeat padding-box;
     border-radius: 15px;
     opacity: 0.85;
     font: normal normal 600 18px/24px Segoe UI;
     color: #E2EDFF;
 }
+
 .bottom > nav i {
     margin-right: 2em;
 }
-.bottom > nav li{
-    padding: 0.5em 0 0.5em 0 ;
+
+.bottom > nav li {
+    padding: 0.5em 0 0.5em 0;
 }
-.bottom > nav  ul {
+
+.bottom > nav ul {
     list-style-type: none;
     font: normal normal 600 18px/24px Segoe UI;
     letter-spacing: 0.5px;
     width: calc(100% - 20px);
     padding-inline-start: 0;
 }
-.bottom > nav a.active{
+
+.bottom > nav a.active {
     font: normal normal 600 18px/24px Segoe UI;
     background: #904797 0% 0% no-repeat padding-box;
     border-radius: 15px;
@@ -336,20 +371,22 @@ body {
     color: #E2EDFF;
     letter-spacing: 0.5px;
 }
-.bottom > nav a.notactive{
+
+.bottom > nav a.notactive {
     text-decoration: none;
     font: normal normal 600 18px/24px Segoe UI;
     letter-spacing: 0.5px;
     color: #0077AF;
 }
-.bottom main{
+
+.bottom main {
     width: 70%;
     height: 100%;
     margin-top: 0;
     margin-left: 0.5em;
     margin-right: 0em;
 
-    background:  0% 0% no-repeat padding-box;
+    background: 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     opacity: 0.85;
@@ -359,14 +396,15 @@ body {
     justify-content: center;
 }
 
-.bottom main.home-bottom > .right{
-     padding-bottom: 2em;
-     width: 50%;
+.bottom main.home-bottom > .right {
+    padding-bottom: 2em;
+    width: 50%;
 
-     display: flex;
-     flex-direction: column;
-     justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 .counter {
     display: flex;
     flex-direction: row;
@@ -380,6 +418,7 @@ body {
 
     margin: 21px 30px;
 }
+
 .counter div.left {
     width: 100%;
     background: #AFC9F0 0% 0% no-repeat padding-box;
@@ -389,22 +428,25 @@ body {
     flex-direction: column;
     justify-items: center;
 }
+
 .counter div.right {
     width: 100%;
     background: #AFC9F0 0% 0% no-repeat padding-box;
-    border-radius: 0 20px 20px 0 ;
+    border-radius: 0 20px 20px 0;
     margin: 0.5em 0.5em 0.5em 0em;
     display: flex;
     flex-direction: column;
 
 }
+
 .counter p {
     text-align: center;
     font: normal normal normal 20px/27px Segoe UI;
     letter-spacing: -0.6px;
     color: #007EAC;
 }
-.counter div.number{
+
+.counter div.number {
     width: 60%;
     text-align: center;
     align-self: center;
@@ -419,11 +461,12 @@ body {
     border-radius: 15px;
 
 }
-.bottom main.home-bottom > .right > .plans-home > div{
+
+.bottom main.home-bottom > .right > .plans-home > a{
     background: #007EAC;
 }
 
-.bottom main.home-bottom > .left{
+.bottom main.home-bottom > .left {
     padding-bottom: 2em;
     width: 50%;
 
@@ -431,13 +474,15 @@ body {
     flex-direction: column;
     justify-content: flex-start;
 }
-p.txt1 {
+
+p.txt1, .plan_photo_add p {
     text-align: left;
     font: normal normal 600 30px/40px Segoe UI;
     letter-spacing: 0px;
     color: #087CB1;
     margin: 21px 1em;
 }
+
 p.txt2 {
     width: 40%;
     padding: 0.1em;
@@ -454,18 +499,21 @@ p.txt2 {
     color: #FFFFFF;
     text-shadow: 0px 3px 6px #00000029;
 }
+
 main.discover-bottom {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
 }
-.selectable-bar{
+
+.selectable-bar {
     padding: 0.5em;
     background: #0E86B0 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
 }
-.selectable-bar > form , #discover-bar {
+
+.selectable-bar > form, #discover-bar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -473,19 +521,22 @@ main.discover-bottom {
     gap: 1.5em;
 }
 
-.selectable-bar select, #country{
+.selectable-bar select, #country {
     align-self: center;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
 }
-.selectable-bar select, .submit,.selectable-bar select option, #country option {
+
+.selectable-bar select, .submit, .selectable-bar select option, #country option {
     font: normal normal 600 16px/22px Segoe UI;
     color: #E2EDFF;
 }
-.selectable-bar select option , #country option{
+
+.selectable-bar select option, #country option {
     background-color: #904797;
 }
+
 .submit {
     background: #9C5FA6 0% 0% no-repeat padding-box;
     border-radius: 50px;
@@ -495,125 +546,160 @@ main.discover-bottom {
     border: none;
 }
 
-div.under, div.under-create{
+div.under, div.under-create {
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 2em;
-    gap:2em;
+    gap: 2em;
 }
-div.under p, div.under-create p{
+
+div.under p, div.under-create p {
     align-self: center;
     text-align: left;
-    margin:0;
+    margin: 0;
     font: normal normal 600 35px/47px Segoe UI;
     letter-spacing: 2.45px;
     color: #0E86B0;
 }
-div.under-create a{
+
+div.under-create a {
     font: normal normal 600 13px/18px Segoe UI;
     color: #FAFAFA;
     background: #0E86B0 0% 0% no-repeat padding-box;
     border-radius: 15px;
     width: 6vw;
 }
-.discover-bottom > div.under a{
+
+.uselocation {
     align-self: center;
     text-align: left;
     text-decoration: underline;
     font: normal normal 600 15px/20px Segoe UI;
     color: #0E86B0;
 }
-.fav-bottom , .account > p {
+
+.fav-bottom, .account > p {
     text-align: center;
     font: normal normal 600 35px/47px Segoe UI;
     letter-spacing: 2.45px;
     color: #0E86B0;
 }
-.messages{
+
+.plan-photograph > p {
+    border-radius: 50px;
+    padding: 0.2em 0.4em;
+    background: #E6EFFE 0% 0% no-repeat padding-box;
+    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
+    position: absolute;
+    text-align: center;
+    font: normal normal bold 25px/33px Segoe UI;
+    letter-spacing: 0px;
+    color: #90469E;
+    margin: 0;
+    bottom: 0.3em;
+    left: 0.3em;
+}
+
+.messages {
     font: normal normal normal 10px/17px Segoe UI;
     letter-spacing: -0.6px;
     color: darkred;
 }
+
 .no-valid {
     border: 3px solid darkred;
     box-shadow: 0 0 0.2em darkred;
     outline: none;
 }
 
-@media only screen and (max-device-width: 420px){
+@media only screen and (max-device-width: 420px) {
     .container {
         flex-direction: column;
     }
-    .login-container{
+
+    .login-container {
         width: 100%;
         height: 60%;
     }
-    .register-container{
+
+    .register-container {
         width: 100%;
         height: 60%;
     }
-    .tlo{
+
+    .tlo {
         height: 40%;
         width: 100%;
         background-image: url('../img/tlo_media.svg');
         background-size: cover;
         position: relative;
     }
-    .logo{
+
+    .logo {
         position: absolute;
         right: 10em;
         top: 40em;
-        transform: scale(2.5,2.5);
+        transform: scale(2.5, 2.5);
     }
+
     .upper-buttons {
         flex-direction: column;
         position: absolute;
         left: -4em;
-        top : 3em;
+        top: 3em;
         align-content: flex-start;
 
     }
-    .upper-buttons > a.active{
+
+    .upper-buttons > a.active {
         padding: 30px 60px;
         align-self: center;
         font: normal normal 600 25px/30px Segoe UI;
     }
-    .upper-buttons a.notactive{
+
+    .upper-buttons a.notactive {
         align-self: center;
         background-color: transparent;
         color: white;
         padding: 30px 60px;
         font: normal normal 600 25px/30px Segoe UI;
     }
-    .upper-buttons a.notactive:hover:not(.active){
+
+    .upper-buttons a.notactive:hover:not(.active) {
         padding: 30px 60px;
         font: normal normal 600 25px/30px Segoe UI;
     }
+
     .text-welcome {
         position: absolute;
-        top : 4em;
+        top: 4em;
         font-size: 90px;
         color: #E2EDFF;
     }
+
     .text-upper {
         position: absolute;
         font-size: 30px;
-        top : 19em;
+        top: 19em;
         color: #E2EDFF;
     }
-    .personal-information input{
+
+    .personal-information input {
         font: normal normal 600 40px/45px Segoe UI;
     }
-    .personal-information input::placeholder{
+
+    .personal-information input::placeholder {
         font: normal normal 600 30px/35px Segoe UI;
     }
-    .ok-button a.active{
+
+    .ok-button a.active {
         padding: 30px 60px;
         font: normal normal 600 25px/30px Segoe UI;
     }
-    .container input{
+
+    .container input {
         font: normal normal 600 30px/35px Segoe UI;
     }
 }

@@ -7,7 +7,7 @@ section, #plan-result {
     margin-right: 30px;
     gap: 1em;
 }
-.plans-home > div , #plan-result > div {
+ .templ-a, .plans-home > a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -15,8 +15,9 @@ section, #plan-result {
     background: #A062A6 0% 0% no-repeat padding-box;
     border-radius: 15px;
     gap:2em;
+     text-decoration: none;
 }
-#plan-result > div{
+.templ-a > div{
     width: 80%;
     align-self: center;
 }
@@ -28,7 +29,7 @@ section, #plan-result {
     margin: 1em;
     position: relative;
 }
-.plans-home > div > img {
+.plans-home > div > img, .plans-home > a > img {
     width: 178px;
     height: 100%;
     object-fit: cover;
@@ -73,7 +74,7 @@ section, #plan-result {
 #plan-temp > div{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 0.5em 2em;
+    grid-gap: 1.5em 2em;
 }
 .plan-informations > div > div {
     display: flex;
@@ -123,6 +124,15 @@ section, #plan-result {
 input::placeholder{
     color: #3b9cbe;
     font: normal normal 600 16px/22px Segoe UI;
+}
+
+.templ-a img {
+    width: 50%;
+}
+.templ-a {
+    width: 70%;
+    align-self: center;
+    gap:1em!important;
 }
 
 

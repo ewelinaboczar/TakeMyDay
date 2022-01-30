@@ -38,29 +38,29 @@
             <section class="account">
                 <p>Change Password</p>
                 <div class="box-informations">
-                        <form class="personal-details" id="submit_pass" action="change_pass" method="post">
-                            <div class="messages">
-                                <?php if(isset($messages)){
-                                    foreach ($messages as $message ){
-                                        echo $message;
-                                    }
+                    <form class="personal-details" id="submit_pass" action="change_pass" method="post">
+                        <div class="messages">
+                            <?php if (isset($messages)) {
+                                foreach ($messages as $message) {
+                                    echo $message;
                                 }
-                                ?>
-                            </div>
-                            <div id="pass">
-                                <p>old password:</p>
-                                <input name="old_password" type="password">
-                            </div>
-                            <div id="pass">
-                                <p>new password:</p>
-                                <input name="new_password" type="password">
-                            </div>
-                            <div id="pass">
-                                <p>confirm password:</p>
-                                <input name="confirmed_password" type="password">
-                            </div>
-                            <a class="save_changes" onclick="submit_pass()">Change Password</a>
-                        </form>
+                            }
+                            ?>
+                        </div>
+                        <div id="pass">
+                            <p>old password:</p>
+                            <input name="old_password" type="password">
+                        </div>
+                        <div id="pass">
+                            <p>new password:</p>
+                            <input name="new_password" type="password">
+                        </div>
+                        <div id="pass">
+                            <p>confirm password:</p>
+                            <input name="confirmed_password" type="password">
+                        </div>
+                        <a class="save_changes" onclick="submit_pass()">Change Password</a>
+                    </form>
                 </div>
             </section>
         </main>

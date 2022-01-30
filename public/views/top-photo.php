@@ -5,7 +5,7 @@ echo '
     <div class="top-photo">
         <div class="left">
             <a class="settings"><i class="fas fa-sliders-h"></i></a>
-            <form id="submit" action="logout" method="get">
+            <form id="submit" action="/logout" method="get">
                 <a class="log-out" onclick="submit()" ><i class="fas fa-sign-out-alt"></i></a>
             </form>
         </div>

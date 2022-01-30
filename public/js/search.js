@@ -1,8 +1,9 @@
 const search = document.querySelector('input[name="browser"]');
 const planContainer = document.querySelector('.under');
+const a = document.querySelector('.templ-a');
 
-search.addEventListener("keyup", function (event){
-    if(event.key === "Enter") {
+search.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
         event.preventDefault();
 
         const data = {search: this.value};
@@ -13,17 +14,17 @@ search.addEventListener("keyup", function (event){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        }).then(function (response){
+        }).then(function (response) {
             return response.json();
-        }).then(function (plans){
+        }).then(function (plans) {
             planContainer.innerHTML = "";
             loadPlans(plans)
         });
     }
 });
 
-function loadPlans(plans){
-    plans.forEach(plan =>{
+function loadPlans(plans) {
+    plans.forEach(plan => {
         console.log(plan);
         createPlan(plan);
     });
@@ -33,6 +34,11 @@ function createPlan(plan) {
     const template = document.querySelector("#plan-template");
 
     const clone = template.content.cloneNode(true);
+
+    console.log(plan);
+
+    const a = clone.querySelector(".templ-a");
+    a.setAttribute("href", "day_plan/" + plan.plan_id);
 
     const image = clone.querySelector("img");
     image.src = `/public/uploads/${plan.image}`;
@@ -51,9 +57,9 @@ function createPlan(plan) {
     const milestones = clone.querySelector("#milestones");
     milestones.innerHTML = plan.count;
     const map = clone.querySelector("#map");
-    if(plan.map === false){
+    if (plan.map === false) {
         plan.map = 'not avaliable'
-    }else{
+    } else {
         plan.map = 'avaliable'
     }
     map.innerHTML = plan.map;

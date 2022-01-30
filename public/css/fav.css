@@ -14,7 +14,7 @@ main.fav-bottom {
     flex-direction: column;
     justify-content: flex-start;
 }
-.fav > div {
+.fav > a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -31,7 +31,7 @@ main.fav-bottom {
     margin: 0.5em;;
     position: relative;
 }
-.fav > div > img{
+.fav img{
     width: 40%;
     height: 100%;
     object-fit: cover;
@@ -42,20 +42,7 @@ main.fav-bottom {
     bottom: 0;
     left: 0;
 }
-.plan-photograph > p{
-    border-radius: 50px;
-    padding: 0.2em 0.4em;
-    background: #E6EFFE 0% 0% no-repeat padding-box;
-    box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
-    position: absolute;
-    text-align: center;
-    font: normal normal bold 25px/33px Segoe UI;
-    letter-spacing: 0px;
-    color: #90469E;
-    margin: 0;
-    bottom: 0.3em;
-    left: 0.3em;
-}
+
 .plan-informations i{
     color:#E2EDFF;
 }

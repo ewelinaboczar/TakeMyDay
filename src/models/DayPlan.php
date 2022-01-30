@@ -1,6 +1,7 @@
 <?php
 
 class DayPlan{
+    private $id;
     private $city;
     private $start_time;
     private $end_time;
@@ -106,5 +107,15 @@ class DayPlan{
     public function setDate($date): void
     {
         $this->date = $date;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 }

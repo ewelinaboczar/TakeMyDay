@@ -42,8 +42,8 @@
                         <div class="button">
                             <form id="submit_photo" action="addPhoto" method="post" enctype="multipart/form-data">
                                 <div class="messages">
-                                    <?php if(isset($messages)){
-                                        foreach ($messages as $message ){
+                                    <?php if (isset($messages)) {
+                                        foreach ($messages as $message) {
                                             echo $message;
                                         }
                                     }
@@ -57,8 +57,8 @@
                     <div class="personal-details">
                         <form id="submit_det" action="addDetails" method="post" enctype="multipart/form-data">
                             <div class="messages">
-                                <?php if(isset($messages)){
-                                    foreach ($messages as $message ){
+                                <?php if (isset($messages)) {
+                                    foreach ($messages as $message) {
                                         echo $message;
                                     }
                                 }
@@ -75,9 +75,9 @@
                             <div>
                                 <p>country:</p>
                                 <input list="countries" name="country" id="country" placeholder="Country...">
-                                <datalist id="countries" >
-                                    <?php foreach($countries as $key): ?>
-                                        <option value="<?=$key['country_name']?>"><?=$key['country_name']?></option>
+                                <datalist id="countries">
+                                    <?php foreach ($countries as $key): ?>
+                                        <option value="<?= $key['country_name'] ?>"><?= $key['country_name'] ?></option>
                                     <?php endforeach; ?>
                                 </datalist>
                             </div>
@@ -93,9 +93,11 @@
     function submit_photo() {
         document.getElementById("submit_photo").submit();
     }
+
     function submit_det() {
         document.getElementById("submit_det").submit();
     }
+
     function submit_logout() {
         document.getElementById("submit_logout").submit();
     }

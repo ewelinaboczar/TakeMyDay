@@ -38,37 +38,49 @@
             </div>
             <section class="add-plan">
                 <div class="milestone-number">
-                    <p>1</p>
+                    <p id="nb">1</p>
                 </div>
                 <form class="component">
                     <div class="new_milestone">
                         <div class="loc">City:
-                            <input list="cities" name="city" id="city" placeholder="<?= $locationInfo['city'];?>" disabled>
+                            <input list="cities" name="city" id="city" placeholder="<?= $locationInfo['city']; ?>"
+                                   disabled>
                         </div>
                         <div class="place">Location:
-                            <input name="place_location" id="place_location" type="text" placeholder="McDonald, Szewska 2, 31-009 Kraków..." required>
+                            <input name="place_location" id="place_location" type="text"
+                                   placeholder="McDonald, Szewska 2, 31-009 Kraków..." required>
                         </div>
                         <div class="type">Location type:
-                            <input list="milestone_types" name="milestone_type" id="milestone_type" placeholder="restaurant..." required>
+                            <input list="milestone_types" name="milestone_type" id="milestone_type"
+                                   placeholder="restaurant..." required>
                             <datalist id="milestone_types">
-                                <?php foreach($milestone_type as $key): ?>
-                                    <option name="type_milestone" value="<?=$key['milestone_type']?>"></option>
+                                <?php foreach ($milestone_type as $key): ?>
+                                    <option name="type_milestone" value="<?= $key['milestone_type'] ?>"></option>
                                 <?php endforeach; ?>
                             </datalist>
                         </div>
                         <div class="des">Description:
-                            <input id="plan-description" name="plan-description" type="text" placeholder="It was really delicious burger...">
+                            <input id="plan-description" name="plan-description" type="text"
+                                   placeholder="It was really delicious burger...">
+                        </div>
+                        <div id="cords">
                         </div>
                     </div>
-                        <div class="buttons">
-                            <p>Time:   <span id="time"></span></p>
-                            <div>
-                                <a class="add" onclick="saveMilestone()"><i class="fas fa-plus" aria-disabled="false"></i></a>
-                                <a class="final-plan" onclick="saveDayPlan()">Final Plan</a>
-                            </div>
+                    <div class="buttons">
+                        <p>Time: <span id="time"></span></p>
+                        <div>
+                            <a class="add" id="add_btn"><i class="fas fa-plus" aria-disabled="false"></i></a>
+                            <a class="final-plan" id="final-plan"">Final Plan</a>
                         </div>
+                    </div>
                 </form>
             </section>
+            <div class="plan_photo_add">
+                <p>Please choose your Day Plan photo</p>
+                <input type="file" name="file">
+                <a id="accept_photo">Save Photo</a>
+                <a id="accept_your_plan">Update Your Plan</a>
+            </div>
         </main>
     </div>
 </body>

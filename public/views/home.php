@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/public/css/style.css">
     <link rel="stylesheet" type="text/css" href="/public/css/plans-home.css">
     <script type="text/javascript" src="./public/js/script.js" defer></script>
+    <script type="text/javascript" src="./public/js/gotoclickedplan.js" defer></script>
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <title>Home page</title>
 </head>
@@ -36,10 +37,10 @@
                 <p class="txt1">The most popular plans for the day</p>
                 <p class="txt2">TOP 10 in Poland</p>
                 <section class="plans-home">
-                    <?php $id=1;
+                    <?php $id = 1;
                     foreach ($planspl as $plan) {
                     ?>
-                    <div id="plan1">
+                    <a id="<?= $plan->getId(); ?>" class="idplan" href="day_plan/<?= $plan->getId(); ?>">
                         <img src="/public/uploads/<?= $plan->getImage(); ?>">
                         <div class="plan-photograph" >
                             <p><?php echo $id; $id+=1; ?></p>
@@ -61,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     <?php if($id == 11){break;}}?>
                 </section>
             </div>
@@ -78,12 +79,13 @@
                 </div>
                 <p class="txt2">TOP 10 Viral</p>
                 <section class="plans-home">
-                    <?php $id=1;
-                    foreach ($plansvir as $plan) {?>
-                        <div id="plan1">
+                    <?php $id = 1;
+                    foreach ($plansvir as $plan) { ?>
+                        <a id="<?= $plan->getId(); ?>" class="idplan" href="day_plan/<?= $plan->getId(); ?>">
                             <img src="/public/uploads/<?= $plan->getImage(); ?>">
-                            <div class="plan-photograph" >
-                                <p><?php echo $id; $id+=1; ?></p>
+                            <div class="plan-photograph">
+                                <p><?php echo $id;
+                                    $id += 1; ?></p>
                             </div>
                             <div class="description">
                                 <div class="plan-informations">
@@ -102,8 +104,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php if($id == 11){break;}}?>
+                        </a>
+                        <?php if ($id == 11) {
+                            break;
+                        }
+                    } ?>
                 </section>
             </div>
         </main>

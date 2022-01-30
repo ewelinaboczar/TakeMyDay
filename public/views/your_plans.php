@@ -35,162 +35,37 @@
                 <a class="notactive" href="create_plan">Create plan</a>
             </div>
             <section class="specific-plans">
-                <div id="plan1">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
+                <?php
+                foreach ($your_plans
+
+                as $plan) : ?>
+                <a id="<?= $plan->getId(); ?>" class="yp" href="day_plan/<?= $plan->getId(); ?>">
+                    <img class="photo" src="/public/uploads/<?= $plan->getImage(); ?>">
+                    <div class="heart">
                         <p><i class="far fa-heart"></i></p>
                     </div>
                     <div class="description">
                         <div class="plan-informations">
                             <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
+                                <div><i class="fas fa-map-marker-alt"></i><?= $plan->getCity(); ?></div>
                                 <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
+                                <div><i class="fas fa-comment"></i><?= $plan->getComments(); ?></div>
                                 <div>
                                     <i class="fas fa-user"></i>
-                                    nick
+                                    <?= $plan->getCreatedBy(); ?>
                                 </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
+                                <div><i class="fas fa-walking"></i>6 steps</div>
+                                <div><i class="fas fa-route"></i><?= $plan->getMap(); ?></div>
+                                <div><i class="fas fa-calendar-check"></i><?= $plan->getDate(); ?></div>
                             </div>
                         </div>
                         <div class="likes">
                             <i class="fas fa-heart"></i>
-                            <p>300</p>
+                            <p><?= $plan->getLikes(); ?></p>
                         </div>
                     </div>
-                </div>
-                <div id="plan2">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
-                                <div>
-                                    <i class="fas fa-user"></i>
-                                    nick
-                                </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
-                            </div>
-                        </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p>300</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="plan3">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
-                                <div>
-                                    <i class="fas fa-user"></i>
-                                    nick
-                                </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
-                            </div>
-                        </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p>300</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="plan4">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
-                                <div>
-                                    <i class="fas fa-user"></i>
-                                    nick
-                                </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
-                            </div>
-                        </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p>300</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="plan5">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
-                                <div>
-                                    <i class="fas fa-user"></i>
-                                    nick
-                                </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
-                            </div>
-                        </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p>300</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="plan6">
-                    <img class="photo" src="/public/img/uploads/photo.jpg">
-                    <div class="heart" >
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i>location</div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i>comments</div>
-                                <div>
-                                    <i class="fas fa-user"></i>
-                                    nick
-                                </div>
-                                <div><i class="fas fa-walking"></i>6 milestones of the day</div>
-                                <div><i class="fas fa-route"></i>available</div>
-                                <div><i class="fas fa-calendar-check"></i>12.12.2021</div>
-                            </div>
-                        </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p>300</p>
-                        </div>
-                    </div>
-                </div>
+                </a>
+                <?php endforeach; ?>
             </section>
         </main>
     </div>

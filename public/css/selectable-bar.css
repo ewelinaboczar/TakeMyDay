@@ -28,7 +28,6 @@ main.your-plans-bottom{
     font: normal normal 600 16px/22px Segoe UI;
     width: 10vw;
     padding: 0.5em 2em;
-    text-decoration: none;
 }
 .your-plans-bottom a.active{
     background-color: #FFFFFF;
@@ -58,6 +57,7 @@ main.your-plans-bottom{
 .heart p {
     position: absolute;
     left: -14.5em;
+    top: 6em;
     padding: 0.7em;
     background-color: #E6EFFE;
     border-radius: 50%;
@@ -78,14 +78,15 @@ main.your-plans-bottom{
     padding: 1em;
     display: flex;
     position: relative;
+    box-shadow: 0px 3px 6px #00000029;
 }
 .plan-informations{
     align-self: center;
 }
 .plan-informations > div {
-    display: grid;
+    display: grid!important;
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 0.5em 4em;
+    grid-gap: 0.5em 4em!important;
     font: normal normal normal 17px/20px Segoe UI;
     color: #E2EDFF;
 }
@@ -227,6 +228,14 @@ main.your-plans-bottom{
     font: normal normal 600 18px/24px Segoe UI;
     color: #FFFFFF;
 }
+
+/* ------------------- Your plans ------------------- */
+
+.yp {
+    display: flex;
+    width: 70%!important;
+}
+
 
 
 
