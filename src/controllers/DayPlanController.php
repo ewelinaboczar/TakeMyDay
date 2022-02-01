@@ -77,8 +77,6 @@ class DayPlanController extends AppController
             'milestones_counter' => $milestones_counter,
             'isFav' => $isFav]);
     }
-    //'timefrom'=>$timefrom,
-    //'timeto'=>$timeto,
 
     public function places()
     {
@@ -159,8 +157,7 @@ class DayPlanController extends AppController
 
     }
 
-    public
-    function typeMilestones()
+    public function typeMilestones()
     {
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
@@ -172,16 +169,14 @@ class DayPlanController extends AppController
         }
     }
 
-    public
-    function favourite()
+    public function favourite()
     {
         $id = $this->userRepository->getUserId($this->user_array['email']);
         $fav_plans = $this->dayPlanRepository->getFavouritePlans($id);
         $this->render('favourite', ['fav_plans' => $fav_plans]);
     }
 
-    public
-    function your_plans()
+    public function your_plans()
     {
         $id = $this->userRepository->getUserId($this->user_array['email']);
         $your_plans = $this->dayPlanRepository->getUserPlans($id);
@@ -189,8 +184,7 @@ class DayPlanController extends AppController
         $this->render('your_plans', ['your_plans' => $your_plans, 'counter' => $counter]);
     }
 
-    public
-    function heart($id)
+    public function heart($id)
     {
         $email = $this->user_array['email'];
         $userid = $this->userRepository->getUserId($email);
@@ -199,8 +193,7 @@ class DayPlanController extends AppController
         http_response_code(200);
     }
 
-    public
-    function unheart($id)
+    public function unheart($id)
     {
         $userid = $this->userRepository->getUserId($this->user_array['email']);
         var_dump($userid, $id, 'unheart');
@@ -208,8 +201,14 @@ class DayPlanController extends AppController
         http_response_code(200);
     }
 
-    private
-    function getPlansId(array $plans): array
+    public function deletePlan($id)
+    {
+        $this->dayPlanRepository->deleteDayPlan($id);
+
+        http_response_code(200);
+    }
+
+    private function getPlansId(array $plans): array
     {
         $result = [];
         $i = 0;
@@ -220,8 +219,7 @@ class DayPlanController extends AppController
         return $result;
     }
 
-    private
-    function validate(array $file): bool
+    private function validate(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {
             $this->messages[] = 'File is too large';
@@ -233,4 +231,5 @@ class DayPlanController extends AppController
         }
         return true;
     }
+
 }

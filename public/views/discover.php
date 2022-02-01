@@ -46,7 +46,6 @@
                 <p>
                     Find your best day plan
                 </p>
-                <a href="#" class="uselocation"><i class="fas fa-map-pin"></i>Use your location</a>
             </div>
         </main>
     </div>
@@ -70,10 +69,6 @@
                     <div>
                         <i class="fas fa-clock"></i>
                         <div id="time">time</div>
-                    </div>
-                    <div>
-                        <i class="fas fa-comment"></i>
-                        <div id="comments"></div>
                     </div>
                     <div>
                         <i class="fas fa-user"></i>

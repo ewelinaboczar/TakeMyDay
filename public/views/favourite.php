@@ -45,7 +45,6 @@
                             <div>
                                 <div><i class="fas fa-map-marker-alt"></i><?= $plan->getCity(); ?></div>
                                 <div><i class="fas fa-clock"></i><?= $plan->getDate(); ?></div>
-                                <div><i class="fas fa-comment"></i><?= $plan->getComments(); ?></div>
                                 <div>
                                     <i class="fas fa-user"></i>
                                     <?= $plan->getCreatedBy(); ?>

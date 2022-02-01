@@ -23,6 +23,7 @@ Routing::get('discover_results', 'DefaultController');
 Routing::get('places', 'DayPlanController');
 Routing::get('heart', 'DayPlanController');
 Routing::get('unheart', 'DayPlanController');
+Routing::get('deletePlan','DayPlanController');
 
 Routing::post('addPhoto', 'UserController');
 Routing::post('addDetails', 'UserController');
@@ -30,4 +31,6 @@ Routing::post('change_pass', 'UserController');
 Routing::post('search', 'DayPlanController');
 Routing::get('typeMilestones', 'DayPlanController');
 Routing::post('day_plan', 'DayPlanController');
+
+
 Routing::run($path);

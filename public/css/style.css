@@ -565,7 +565,7 @@ div.under p, div.under-create p {
     color: #0E86B0;
 }
 
-div.under-create a, .buttonsss button {
+div.under-create a, .buttonsss button, .send {
     font: normal normal 600 13px/18px Segoe UI;
     color: #FAFAFA;
     background: #0E86B0 0% 0% no-repeat padding-box;

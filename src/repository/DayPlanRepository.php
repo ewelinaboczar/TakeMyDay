@@ -12,7 +12,7 @@ class DayPlanRepository extends Repository
         if ($what == true) {
             $stmt = $this->database->connect()->prepare('
             select u.nick,
-                   d.comments, d.likes, d.image, d.date_added,
+                d.likes, d.image, d.date_added,
                    c.city_name, d.plan_id
             FROM public.users u
                 left join public.day_plan d on u.id = d.created_by
@@ -30,7 +30,6 @@ class DayPlanRepository extends Repository
                     $plan['city_name']
                 );
                 $result[$i]->setId($plan['plan_id']);
-                $result[$i]->setComments($plan['comments']);
                 $result[$i]->setLikes($plan['likes']);
                 $result[$i]->setCreatedBy($plan['nick']);
                 $result[$i]->setImage($plan['image']);
@@ -42,7 +41,7 @@ class DayPlanRepository extends Repository
         } else {
             $stmt = $this->database->connect()->prepare('
             select u.nick,
-                   d.comments, d.likes, d.image, d.date_added,
+                   d.likes, d.image, d.date_added,
                    c.city_name, d.plan_id
             FROM public.users u
                 left join public.day_plan d on u.id = d.created_by
@@ -59,7 +58,6 @@ class DayPlanRepository extends Repository
                     $plan['city_name']
                 );
                 $result[$i]->setId($plan['plan_id']);
-                $result[$i]->setComments($plan['comments']);
                 $result[$i]->setLikes($plan['likes']);
                 $result[$i]->setCreatedBy($plan['nick']);
                 $result[$i]->setImage($plan['image']);
@@ -120,7 +118,6 @@ class DayPlanRepository extends Repository
 
         $dayplan = new DayPlan($plan['city_name']);
         $dayplan->setId($plan['plan_id']);
-        $dayplan->setComments($plan['comments']);
         $dayplan->setCreatedBy($plan['nick']);
         $dayplan->setDate($plan['date_added']);
         $dayplan->setImage($plan['image']);
@@ -138,7 +135,7 @@ class DayPlanRepository extends Repository
         $result = [];
         $stmt = $this->database->connect()->prepare('
             select u.nick,
-                   d.comments, d.likes, d.image, d.date_added,
+                   d.likes, d.image, d.date_added,
                    c.city_name, d.plan_id, d.map
             FROM public.users u
                 left join public.day_plan d on u.id = d.created_by
@@ -157,7 +154,6 @@ class DayPlanRepository extends Repository
                 $plan['city_name']
             );
             $result[$i]->setId($plan['plan_id']);
-            $result[$i]->setComments($plan['comments']);
             $result[$i]->setLikes($plan['likes']);
             $result[$i]->setCreatedBy($plan['nick']);
             $result[$i]->setImage($plan['image']);
@@ -177,7 +173,7 @@ class DayPlanRepository extends Repository
         $result = [];
         $stmt = $this->database->connect()->prepare('
             select u.nick,
-                   d.comments, d.likes, d.image, d.date_added,
+                    d.likes, d.image, d.date_added,
                    c.city_name, d.plan_id, d.map
             FROM public.users u
                 left join public.day_plan d on u.id = d.created_by
@@ -195,7 +191,6 @@ class DayPlanRepository extends Repository
                 $plan['city_name']
             );
             $result[$i]->setId($plan['plan_id']);
-            $result[$i]->setComments($plan['comments']);
             $result[$i]->setLikes($plan['likes']);
             $result[$i]->setCreatedBy($plan['nick']);
             $result[$i]->setImage($plan['image']);
@@ -249,7 +244,7 @@ class DayPlanRepository extends Repository
         }
     }
 
-    public function getPlanId(DayPlan $day_plan):int
+    public function getPlanId(DayPlan $day_plan): int
     {
         $city = $day_plan->getCity();
         $image = $day_plan->getImage();
@@ -288,7 +283,8 @@ class DayPlanRepository extends Repository
         ]);
     }
 
-    public function addRelPlanMilestone($planid, $milid){
+    public function addRelPlanMilestone($planid, $milid)
+    {
         $stmt = $this->database->connect()->prepare('
             INSERT INTO public.rel_milestone_day_plan (milestone_id, plan_id)
             VALUES (?, ?)
@@ -352,6 +348,16 @@ class DayPlanRepository extends Repository
                 $stmt2->execute();
             }
         }
+    }
+
+    public function deleteDayPlan($id)
+    {
+        $stmt = $this->database->connect()->prepare('
+            DELETE FROM public.day_plan 
+            WHERE plan_id = :id
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
     private function getCityId(string $city): int

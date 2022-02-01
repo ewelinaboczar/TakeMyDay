@@ -7,3 +7,4 @@ $email=$logUser->getEmail();
 $name=$user_array['name'];
 $surname=$user_array['surname'];
 $photograph=$user_array['user_photo'];
+$admin=$user_array['admin'];

@@ -39,5 +39,10 @@ function passwordValidation() {
     );
 }
 
+form.addEventListener('keyup',function (event){
+    if(event.key === "Enter"){
+        submit();
+    }
+});
 emailInput.addEventListener('keyup', emailValidation);
 confirmedPasswordInput.addEventListener('keyup', passwordValidation);

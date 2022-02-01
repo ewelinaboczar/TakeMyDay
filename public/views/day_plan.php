@@ -65,10 +65,6 @@
                             <div id="time"><?= $timefrom['milestone_time'] ?> - <?= $timeto['milestone_time'] ?></div>
                         </div>
                         <div>
-                            <i class="fas fa-comment"></i>
-                            <div id="comments"><?= $plan->getComments(); ?></div>
-                        </div>
-                        <div>
                             <i class="fas fa-user"></i>
                             <div id="nick"><?= $plan->getCreatedBy(); ?></div>
                         </div>
@@ -84,6 +80,9 @@
                             <i class="fas fa-heart"></i>
                             <div id="likes"><?= $plan->getLikes(); ?></div>
                         </div>
+                    </div>
+                    <div class="for_admin" id="<?= $admin ?>">
+                        <button class="delete">delete plan</button>
                     </div>
                 </div>
                 <div id="milestones">
@@ -134,18 +133,6 @@
             <div class="map-container">
                 <p id="tittle">MAP</p>
                 <div id='map'></div>
-            </div>
-            <div class="comments-div">
-                <p id="comm_tittle">COMMENTS</p>
-                <div class="counter-comments">
-                    <p><?= $plan->getComments(); ?> comments</p>
-                </div>
-                <div id="div1">
-                    <textarea class="comment-input" rows="4"></textarea>
-                </div>
-                <div class="new_comment">
-
-                </div>
             </div>
         </main>
     </div>

@@ -57,6 +57,7 @@ class UserController extends AppController
 
         $user = new User($this->user_array['email'], $this->user_array['password'], $this->user_array['nick']);
 
+
         $user->setName($name);
         $user->setSurname($surname);
         $user->setCountry($country);

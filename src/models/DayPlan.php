@@ -6,7 +6,6 @@ class DayPlan{
     private $start_time;
     private $end_time;
     private $created_by;
-    private $comments;
     private $likes;
     private $image;
     private $date;
@@ -77,14 +76,6 @@ class DayPlan{
     public function setCreatedBy($created_by): void
     {
         $this->created_by = $created_by;
-    }
-    public function getComments()
-    {
-        return $this->comments;
-    }
-    public function setComments($comments): void
-    {
-        $this->comments = $comments;
     }
     public function getLikes()
     {

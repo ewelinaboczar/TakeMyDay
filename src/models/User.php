@@ -11,6 +11,7 @@ class User
     private $nick;
     private $name;
     private $dateOfBirth;
+    private $admin;
 
 
     public function __construct(string $email, string $password, string $nick){
@@ -89,5 +90,15 @@ class User
     public function setDateOfBirth($dateOfBirth): void
     {
         $this->dateOfBirth = $dateOfBirth;
+    }
+
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin($admin): void
+    {
+        $this->admin = $admin;
     }
 }

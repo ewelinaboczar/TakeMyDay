@@ -1,10 +1,12 @@
 const heaartButtons = document.querySelector("#clickme");
 const heartContainer = document.querySelector(".heart-fav");
 const idContainer = document.querySelector(".img");
+const deleteBtn = document.querySelector(".delete");
+const divForAdmin = document.querySelector(".for_admin");
+const id = idContainer.getAttribute("id");
 
 function changeStats() {
     const fav = document.querySelector("#likes");
-    const id = idContainer.getAttribute("id");
 
     if (parseInt(heartContainer.getAttribute('id')) === 0) {
         fetch(`/heart/${id}`)
@@ -27,14 +29,37 @@ function changeStats() {
     }
 }
 
-console.log(parseInt(heartContainer.getAttribute("id")));
-if (parseInt(heartContainer.getAttribute("id")) === 0) {
-    heaartButtons.setAttribute("class", "far fa-heart");
-} else {
-    heaartButtons.setAttribute("class", "fas fa-heart");
+function ifAdmin() {
+    const adm = divForAdmin.getAttribute("id");
+    if (adm) {
+        deleteBtn.style.display = "flex";
+    } else {
+        deleteBtn.style.display = "none";
+    }
 }
 
+function setHeart() {
+    if (parseInt(heartContainer.getAttribute("id")) === 0) {
+        heaartButtons.setAttribute("class", "far fa-heart");
+    } else {
+        heaartButtons.setAttribute("class", "fas fa-heart");
+    }
+}
+
+
+function deletePlan() {
+    fetch(`/deletePlan/${id}`).then(function () {
+    }).then(function (response) {
+        return response.json();
+    });
+}
+
+
+ifAdmin();
+setHeart();
+console.log(parseInt(heartContainer.getAttribute("id")));
 heaartButtons.addEventListener("click", changeStats);
+deleteBtn.addEventListener("click", deletePlan);
 
 
 
