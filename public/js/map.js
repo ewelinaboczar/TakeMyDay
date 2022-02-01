@@ -1,5 +1,5 @@
-let mapboxgl;
-mapboxgl.accessToken = 'pk.eyJ1IjoiZXdlbGluYTE3OSIsImEiOiJja3ZsMmxsMHYwM2pxMzNxZm83eDE3ODFwIn0.GHzKKdvdRWbdqU4bFqoC_w';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZXdlbGluYTE3OSIsImEiOiJja3oxZG52cXkwd3huMnZvMTdvYnA0eDA4In0.6gmnsHuRGUz1QKuj9waY4A';
+const cont = String(document.getElementById('mapps').innerText);
 
 const map = new mapboxgl.Map({
     container: 'map',
@@ -8,14 +8,19 @@ const map = new mapboxgl.Map({
     zoom: 12
 });
 
-fetch("/places").then(function (response){
-    return response.json();
-}).then(function (places) {
-    places.map(place=>{
-        place.coordinates = JSON.parse(place.coordinates);
+if(cont !== 'available'){
+    document.querySelector('.map-container').style.display = 'none';
+}else{
+    fetch("/places").then(function (response){
+        return response.json();
+    }).then(function (places) {
+        places.map(place=>{
+            place.coordinates = JSON.parse(place.coordinates);
+        });
+        displayPlaces(places);
     });
-    displayPlaces(places);
-});
+}
+
 
 function displayPlaces(places){
     for (const feature of places) {

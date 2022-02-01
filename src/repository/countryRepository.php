@@ -22,6 +22,18 @@ class CountryRepository extends Repository
         return $stmt;
     }
 
+    public function getCityId(string $city_name):int{
+        $stmt = $this->database->connect()->prepare('
+            SELECT city_id FROM public.city c
+            WHERE c.city_name = :city_name
+        ');
+        $stmt->bindParam(':city_name', $city_name, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data['city_id'];
+    }
+
     public function getCityCountryByPlanId($id)
     {
         $result = [];

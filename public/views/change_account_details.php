@@ -74,12 +74,11 @@
                             </div>
                             <div>
                                 <p>country:</p>
-                                <input list="countries" name="country" id="country" placeholder="Country...">
-                                <datalist id="countries">
+                                <select id="countries" name="country">
                                     <?php foreach ($countries as $key): ?>
                                         <option value="<?= $key['country_name'] ?>"><?= $key['country_name'] ?></option>
                                     <?php endforeach; ?>
-                                </datalist>
+                                </select>
                             </div>
                             <a class="save_changes" onclick="submit_det()">Save Changes</a>
                         </form>

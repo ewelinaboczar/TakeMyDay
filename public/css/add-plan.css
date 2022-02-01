@@ -11,30 +11,51 @@
 
 .milestone-number {
     width: 2.5em;
-    height: 2.5em;
+    height: 2em;
     display: flex;
     justify-content: center;
 
     background: #9C5EA2 0% 0% no-repeat padding-box;
-    font: normal normal 600 25px/33px Segoe UI;
-    color: #FAFAFA;
+    font: normal normal 600 25px/33px Segoe UI!important;
+    color: #FAFAFA!important;
     border-radius: 50%;
 }
 
 .milestone-number p, #plan_photo_add p {
     align-self: center;
     justify-self: center;
+
+}
+.new_milestone{
+    display: flex;
+    flex-direction: column;
+}
+.add-plan > form, .add-plan > form > div {
+    display: flex;
+    width: 50vw;
+    gap:1em;
 }
 
-.add-plan > form {
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form_inputs {
     width: 50vw;
     background: #AF9EC1 0% 0% no-repeat padding-box;
     border-radius: 15px;
     padding: 1.5em;
     gap: 1em;
+    display: flex;
+    flex-direction: column;
+}
+#form_step{
+    position: absolute;
 }
 
-.component > div > .loc, .type, .des, .place {
+.component > div > div > div > .loc, .type, .des, .place, .tim {
     color: #FFFFFF;
     font: normal normal 600 15px/20px Segoe UI;
     display: flex;
@@ -43,11 +64,22 @@
     margin-bottom: 1em;
 }
 
-.component > div input {
+.component > div input, #milestone_types , #cities{
     align-self: center;
     width: 90%;
     padding: 0.5em;
     font: normal normal 600 15px/20px Segoe UI;
+}
+#cities, #milestone_types{
+    width: 93% !important;
+}
+#milestone_types, #cities{
+    color: black;
+
+}
+#milestone_types option, #cities option{
+    width: 90%;
+    padding: 0.5em;
 }
 
 .component > .buttons {
@@ -69,12 +101,16 @@
     border-radius: 15px;
     opacity: 0.85;
     padding: 0.5em 2em;
-    margin: 0;
+    margin: 0!important;
 }
 
-.buttons p, a {
+.buttons p, a , #timerr, #nb {
     font: normal normal 600 15px/20px Segoe UI;
     color: #FFFFFF;
+    letter-spacing: 0;
+}
+#nb{
+    font: normal normal bold 25px/33px Segoe UI;
 }
 
 .buttons a {
@@ -110,4 +146,47 @@
 #accept_your_plan {
     display: none;
 }
+.create-new-plan-div{
+    display:flex;
+    flex-direction: column;
+    gap:2em;
+}
+.milestone_types select {
+    display: none; /*hide original SELECT element: */
+}
+.accept, .new-photo,.accept-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.accept p{
+    gap:4em!important;
+    font-size: 30px!important;
+}
+.accept{
+    gap:4em!important;
+    position: absolute;
+}
+.new-photo{
+    gap:1em;
+}
+.new-photo p{
+    font: normal normal 600 17px/24px Segoe UI!important;
+    letter-spacing: 0!important;
+}
+.new-photo input{
+    width: 227px!important;
+}
+.plan-to-accept > div{
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+#milestone-form{
+    flex-direction: column;
+}
+.buttonsss{
+    justify-content: center;
+}
+
 

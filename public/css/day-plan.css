@@ -11,7 +11,7 @@
 #details > div{
     justify-content: space-between;
 }
-#dp{
+#dp, .accept-div{
     display: grid;
     grid-template-columns: repeat(1,1fr);
     justify-content: flex-start;
@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
 }
-#tittle{
+#tittle, #comm_tittle{
     color: #0077AFD1;
     font: normal normal 600 30px/40px Segoe UI;
     text-shadow: 0px 3px 6px #00000029;
@@ -42,14 +42,14 @@
     letter-spacing: 2.45px;
 }
 #details {
+    heigh:27vh;
     gap: 0.5em;
     font: normal normal bold 21px/28px Segoe UI;
     color: #E2EDFF;
     background: #AF9EC1 0% 0% no-repeat padding-box;
     padding: 1em 2em;
-    box-shadow: 0px 3px 6px #00000029;
 }
-#img {
+.img {
     position: relative;
 
 }
@@ -59,7 +59,7 @@
     height: 100%;
     object-fit: cover;
 }
-#heart-fav{
+.heart-fav{
     position: relative;
     display: flex;
     justify-content: center;
@@ -74,6 +74,9 @@
     border-radius: 100%;
     font-size: 30px;
 }
+.fa-heart:hover{
+    solid-color: #9C5FA6;
+}
 #milestones-details,#zero>div {
     background: #FFFFFF;
     padding: 1em 2em;
@@ -83,7 +86,11 @@
 #zero>div{
     padding:0.5em 2em;
 }
-#milestones-details > div{
+.zero>div{
+    padding: 0.5em 1.5em!important;
+}
+
+#milestones-details > div, .comments-div{
     flex-direction: column;
     width: 100%;
     gap: 0.5em;
@@ -102,17 +109,17 @@
     color: #0077AF;
     font: normal normal 600 19px/26px Segoe UI;
 }
-#milestones > div>div,#milestones > div>div>div{
+#milestones > div>div>div,#milestones > div>div>div>div{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: flex-start;
 }
-.milest-info{
+.milest-info, .comments-div{
     display: flex;
     flex-direction: column!important;
 }
-#milestones-details > div > div, #zero > div{
+#milestones-details > div > div, #zero > div, .counter-comments{
     gap: 2em;
     color: #0077AF;
     font: normal normal 600 19px/26px Segoe UI;
@@ -120,7 +127,41 @@
 #bg-color{
     background: #AF9EC1 0% 0% no-repeat padding-box;
     padding: 2em;
-    height: -webkit-fill-available;
+    height: 66vh;
+}
+#bg-color>div{
+    height: 100%;
     overflow: auto;
+}
+.under-create, .comments-div{
+    overflow: auto;
+    position: relative;
+}
+.comments-div{
+    height: 50vh;
+    justify-content: flex-start!important;
+    margin: 0!important;
+    gap:0!important;
+}
+.comments-div > #div1{
+    display: flex;
+    background-color: #3b9cbe;
+    justify-content: center;
+    align-content: center;
+}
+.comment-input{
+    align-self: center;
+    text-align: left;
+    background-color: #FFFFFF;
+    border: 1px solid #3b9cbe;
+    color: #3b9cbe;
+    font: normal normal 600 16px/22px Segoe UI;
+    width: 60%;
+    height: 120px;
+    padding: 0.5em 2em;
+    text-decoration: none;
+}
+.counter-comments{
+    padding: 0.5em;
 }
 

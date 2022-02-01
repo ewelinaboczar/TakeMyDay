@@ -307,6 +307,7 @@ body {
 }
 
 .person :first-child {
+    object-fit: cover;
     width: 70px;
     height: 70px;
     display: flex;
@@ -521,19 +522,19 @@ main.discover-bottom {
     gap: 1.5em;
 }
 
-.selectable-bar select, #country {
+ #country {
     align-self: center;
     padding: 0.5em 2em;
     background: transparent;
     border: 1px solid #FFFFFF;
 }
 
-.selectable-bar select, .submit, .selectable-bar select option, #country option {
+.submit, #country option {
     font: normal normal 600 16px/22px Segoe UI;
     color: #E2EDFF;
 }
 
-.selectable-bar select option, #country option {
+#country option {
     background-color: #904797;
 }
 
@@ -564,7 +565,7 @@ div.under p, div.under-create p {
     color: #0E86B0;
 }
 
-div.under-create a {
+div.under-create a, .buttonsss button {
     font: normal normal 600 13px/18px Segoe UI;
     color: #FAFAFA;
     background: #0E86B0 0% 0% no-repeat padding-box;
@@ -589,7 +590,7 @@ div.under-create a {
 
 .plan-photograph > p {
     border-radius: 50px;
-    padding: 0.2em 0.4em;
+    padding: 0.2em 0.6em;
     background: #E6EFFE 0% 0% no-repeat padding-box;
     box-shadow: inset 0px 3px 6px #00000029, 0px 3px 6px #00000029;
     position: absolute;

@@ -5,6 +5,7 @@
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/script.js" defer></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="../public/js/statistics.js" defer></script>
     <title>Discover page</title>
 </head>
 <body>
@@ -34,11 +35,11 @@
             <div class="selectable-bar" id="discover-bar">
                 <label for="city">
                     <input list="browsers" name="browser" id="browser" placeholder="City..">
-                        <datalist id="browsers" >
-                            <?php foreach($city as $key): ?>
-                                <option id="city" value="<?=$key['city_name']?>"></option>
-                            <?php endforeach; ?>
-                        </datalist>
+                    <datalist id="browsers">
+                        <?php foreach ($city as $key): ?>
+                            <option id="city" value="<?= $key['city_name'] ?>"></option>
+                        <?php endforeach; ?>
+                    </datalist>
                 </label>
             </div>
             <div class="under" id="plan-result">
@@ -55,9 +56,6 @@
 <template id="plan-template">
     <a id="" class="templ-a">
         <img src="">
-        <div class="plan-photograph" >
-            <p><i class="far fa-heart"></i></p>
-        </div>
         <div class="description">
             <div class="plan-informations" id="plan-temp">
                 <div>
@@ -97,5 +95,6 @@
             </div>
         </div>
     </a>
+
 </template>
 

@@ -20,7 +20,7 @@ main.your-plans-bottom{
     display: flex;
     justify-content: space-evenly;
 }
-.your-plans-bottom a{
+.your-plans-bottom a, .buttonsss button{
     align-self: center;
     text-align: center;
     border: 1px solid #FFFFFF;
@@ -86,7 +86,7 @@ main.your-plans-bottom{
 .plan-informations > div {
     display: grid!important;
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 0.5em 4em!important;
+    grid-gap: 1.5em 4em!important;
     font: normal normal normal 17px/20px Segoe UI;
     color: #E2EDFF;
 }
@@ -203,7 +203,7 @@ main.your-plans-bottom{
     color: #0080AC;
     padding: 0.5em 0 ;
 }
-.personal-details input, .personal-details #country {
+.personal-details input, .personal-details #country, #countries {
     font: normal normal 600 18px/24px Segoe UI;
     border: none;
     text-decoration: none;
@@ -211,6 +211,9 @@ main.your-plans-bottom{
     color: #0080AC;
     padding: 0.5em;
     width: 236px;
+}
+#countries{
+    width: 254px;
 }
 .personal-details #country {
     overflow: auto;
@@ -222,6 +225,7 @@ main.your-plans-bottom{
 .bg {
     background-color: #0E86B0;
     width: 20vw;
+    height: 20px;
     padding: 0.5em;
 }
 .bg p {

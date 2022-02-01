@@ -1,132 +1,192 @@
 const datetime = new Date().toLocaleTimeString();
-
-
-function refreshTime() {
-    document.getElementById("time").textContent = new Date().toLocaleTimeString();
-}
-
-setInterval(refreshTime, 1000);
-
-
+const createNewDayPlanBtn = document.querySelector('.start-button');
+const endDiv = document.querySelector('.accept-div');
+const buttonsDiv = document.querySelector('.buttonsss');
+const startBtnDiv = document.querySelector('.create-new-plan-div');
+const formContainer = document.querySelector('.component');
 let counter = 0;
 
-class Milestone {
-    cords;
+function showNewFormDiv() {
+    console.log('jestem w shownewform');
+    startBtnDiv.style.display = "none";
 
-    constructor(place, type, description) {
-        this.place = place;
-        this.type = type;
-        this.description = description;
+    const template = document.querySelector("#template");
+    const clone = template.content.cloneNode(true);
+    formContainer.appendChild(clone);
+
+    const numbers = document.querySelectorAll("#nb");
+    const divs = document.querySelectorAll(".form_step");
+    const locs = document.querySelectorAll(".loc");
+
+    const timers = document.querySelectorAll("#timer");
+    const timer = timers[counter];
+
+    function refreshTime() {
+        timer.innerText = new Date().toLocaleTimeString();
     }
 
-    setTime(time) {
-        this.time = time;
+    setInterval(refreshTime, 1000);
+
+    if (counter > 0) {
+        console.log('jestem w ifie');
+
+        const number = numbers[counter];
+        const divNext = divs[counter];
+        const divCity = locs[counter];
+        divCity.style.display = "none";
+        divNext.style.opacity = "1";
+        number.innerText = counter + 1;
     }
 
-    setCords(lon, lat) {
-        let lo = String(lon);
-        let la = String(lat)
-        this.cords = new Array([lo, la]);
+    const addBtnsClone = document.querySelectorAll('.add');
+    const finishBtnsClone = document.querySelectorAll('.final-plan');
+
+    function addNewDiv() {
+        const city = document.querySelector('#cities').value;
+        const time = document.querySelectorAll('#plan-time');
+        const location = document.querySelectorAll('#place_location');
+        const type = document.querySelectorAll('#milestone_types');
+        const descriptions = document.querySelectorAll('#plan-description');
+
+        const t = time[counter].value;
+        const l = location[counter].value;
+        const typ = type[counter].value;
+
+        descriptions[counter].setAttribute("name","plan-description"+counter);
+        time[counter].setAttribute("name","plan-time"+counter);
+        type[counter].setAttribute("name","milestone_type"+counter);
+        location[counter].setAttribute("name","place_location"+counter);
+
+        console.log(t,l,typ,city);
+
+        if (checkIfIsNull(t, l, typ, city)) {
+            const divv = divs[counter];
+            console.log(divv);
+            console.log('jestem w addnewdiv');
+            divv.style.left = "-100vw";
+            divv.style.opacity = "0";
+            counter++;
+            showNewFormDiv();
+        }
+
+
     }
 
-    getPlace() {
-        return this.place;
-    }
+    function acceptPlan() {
+        const divv = divs[counter];
+        console.log(divv);
+        const time = document.querySelectorAll('#plan-time');
+        const location = document.querySelectorAll('#place_location');
+        const type = document.querySelectorAll('#milestone_types');
+        const city = document.querySelector('#cities').value;
+        const typ = type[counter].value;
+        const t2 = time[counter].value;
+        const l2 = location[counter].value;
 
-    getDesc() {
-        return this.description;
-    }
+        if (checkIfIsNull(t2, l2, typ, city)){
+            const descriptions = document.querySelectorAll('#plan-description');
+            console.log('jestem w accept plan');
+            divv.style.left = "-100vw";
+            divv.style.opacity = "0";
+            const template1 = document.querySelector("#accept-plan");
+            const clone1 = template1.content.cloneNode(true);
+            formContainer.appendChild(clone1);
 
-    getType() {
-        return this.type;
-    }
-}
+            const numbersSteps = document.querySelector('.numbers-of-steps');
+            numbersSteps.innerText = 'You have ' + (counter + 1) + ' steps to a daily plan';
 
+            const saveBtn = document.querySelector('.save');
+            saveBtn.addEventListener("click", checkIfEverythingIsOkay);
+        }
+        const inputFile = document.querySelector('.file');
 
-const milestones = [];
-const add = document.getElementById('add_btn');
-const finish = document.getElementById('final-plan');
-const number = document.getElementById('nb');
-const milestoneContainer = document.querySelector('.add-plan');
-const uploadPhoto = document.querySelector('.plan_photo_add');
-const addPhotoBtn = document.querySelector('#accept_photo');
-const acceptPlanBtn = document.querySelector('#accept_your_plan');
-let val;
+        function checkIfEverythingIsOkay() {
+            if (inputFile.value !== '') {
+                console.log('jestem w checkIfEverythingIsOkay');
+                const divv2 = document.querySelector(".accept");
+                divv2.style.left = "-100vw";
+                divv2.style.opacity = "0";
 
-uploadPhoto.style.display = 'none';
+                endDiv.style.left = "0";
+                endDiv.style.opacity = "1";
+                buttonsDiv.style.left = "0";
+                buttonsDiv.style.opacity = "1";
 
-add.addEventListener("click", function (event) {
+                const img = (document.querySelector('.file').value).substr(12);
+                const descriptions = document.querySelectorAll('#plan-description');
 
-    const place = document.getElementById('place_location').value;
-    const locationType = document.getElementById("milestone_type").value;
-    const description = document.getElementById("plan-description").value;
-    let number_val = parseInt(document.getElementById('nb').innerText);
-    const time = new Date().toLocaleTimeString();
+                for (let i = 0; i < counter + 1; i++) {
+                    const t2 = time[i].value;
+                    const l2 = location[i].value;
+                    const desc = descriptions[i].value;
 
-    const milestone = new Milestone(place, locationType, description);
+                    const milestoneContainer = document.querySelector('.milest-info');
+                    const template3 = document.querySelector(".milestone");
+                    const clone3 = template3.content.cloneNode(true);
+                    milestoneContainer.appendChild(clone3);
 
-    if ((place === '') || (locationType === '')) {
-        console.log('You have to enter something')
-    } else {
-        if (counter > 0) {
-            const m2 = getMilestoneWithoutTime(milestones[counter - 1]);
-            if (JSON.stringify(milestone) === JSON.stringify(m2)) {
-                console.log('same milestones');
+                    const mtime = document.querySelectorAll('.mt');
+                    const mlocation = document.querySelectorAll('.ml');
+                    const mdescriptions = document.querySelectorAll('.md');
+                    const mn = document.querySelectorAll('.mn');
+
+                    mtime[i].innerText = t2;
+                    mlocation[i].innerText = l2;
+                    mdescriptions[i].innerText = desc;
+                    mn[i].innerText = i + 1 + '.';
+
+                }
+                const dpimg = document.querySelector('.imgg');
+                const dploc = document.querySelector('.cos');
+                const dpcity = document.querySelector('#location');
+                const dpdate = document.querySelector('#date');
+                const dpmiles_count = document.querySelector('#milestones_count');
+
+                const steps = counter + 1;
+                formContainer.setAttribute("action","add_plan/"+steps);
+
+                dpimg.setAttribute("src", img);
+                dpcity.innerText = city;
+                const now = new Date();
+                dpdate.innerText = `${now.getDate()}.${now.getMonth() + 1}.${now.getFullYear()}`;
+
+                dpmiles_count.innerText = steps + ' steps';
+                dploc.innerHTML = city;
+
             } else {
-                milestone.setTime(time);
-                addMilestoneToArray(milestone);
-                number.innerText = number_val + 1;
+                alert("Please upload photo");
             }
-        } else {
-            milestone.setTime(time);
-            addMilestoneToArray(milestone);
-            number.innerText = number_val + 1;
         }
     }
 
-});
+    addBtnsClone.forEach((btn) =>
+        btn.addEventListener("click", addNewDiv)
+    );
 
-function addMilestoneToArray(milestone) {
-    milestones.push(milestone);
-    counter += 1;
-    console.log(milestones);
-}
-
-function getMilestoneWithoutTime(milestone) {
-    return new Milestone(milestone.getPlace(), milestone.getType(), milestone.getDesc());
-}
-
-//Ta metoda nie działa tzn dziala ale nie mozna przekazac zadnych danych dalej.....
-function locationTypeVerify(typemil) {
-    const data = {type: typemil};
-    fetch("/typeMilestones", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (types) {
-        setOut(types)
-    });
+    finishBtnsClone.forEach((btn) =>
+        btn.addEventListener("click", acceptPlan)
+    );
 
 }
 
-
-finish.addEventListener('click', function (event) {
-    milestoneContainer.style.display = 'none';
-    if (uploadPhoto.style.display === 'none') {
-        uploadPhoto.style.display = 'flex';
+function checkIfIsNull(t, l, typ, city) {
+    if (counter === 0) {
+        if ((t !== '') && (l !== '') && (typ !== '') && (city !== '')) {
+            return true;
+        } else {
+            alert('You need to complete city, location, location type and time!');
+        }
+    } else {
+        if ((t !== '') && (l !== '') && (typ !== '')) {
+            return true;
+        } else {
+            alert('You need to complete location, location type and time!');
+        }
     }
-});
+}
 
-
-addPhotoBtn.addEventListener('click', function (event) {
-    val = (document.querySelector('input[name="file"]')).value;
-    if (acceptPlanBtn.style.display === 'none') {
-        acceptPlanBtn.style.display = 'block';
-    }
-});
-
-
+buttonsDiv.style.left = "-100vw";
+buttonsDiv.style.opacity = "0";
+endDiv.style.left = "-100vw";
+endDiv.style.opacity = "0";
+createNewDayPlanBtn.addEventListener("click", showNewFormDiv);

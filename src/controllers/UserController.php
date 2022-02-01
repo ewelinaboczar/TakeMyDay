@@ -31,8 +31,7 @@ class UserController extends AppController
                 dirname(__DIR__) . self::UPLOAD_DIRECTORY . $_FILES['file']['name']
             );
 
-            $user_array = json_decode($_COOKIE['logUser'], true);
-            $user = new User($user_array['email'], $user_array['password'], $user_array['nick']);
+            $user = new User($this->user_array['email'], $this->user_array['password'], $this->user_array['nick']);
 
             $user->setUserPhoto($_FILES['file']['name']);
 

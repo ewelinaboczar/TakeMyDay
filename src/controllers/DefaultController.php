@@ -23,10 +23,6 @@ class DefaultController extends AppController {
         $city = $this->countryRepository->getCity();
         $this->render('discover',['city'=>$city]);
     }
-    public function create_plan()
-    {
-        $this->render('create_plan');
-    }
     public function discover_results()
     {
         $this->render('discover_results');

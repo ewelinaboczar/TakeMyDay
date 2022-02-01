@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/public/css/map.css">
 
     <script src="https://kit.fontawesome.com/62f42132ad.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./public/js/script.js" defer></script>
-    <script type="text/javascript" src="./public/js/map.js" defer></script>
+    <script type="text/javascript" src="../public/js/script.js" defer></script>
+    <script type="text/javascript" src="../public/js/map.js" defer></script>
+    <script type="text/javascript" src="../public/js/statistics.js" defer></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet'/>
     <title>Day plan page</title>
@@ -37,11 +38,17 @@
         </nav>
         <main class="discover-bottom" id="dp">
             <div>
+                <?php $fav = 0;
+                if ($isFav) {
+                    $fav = 1;
+                } else {
+                    $fav = 0;
+                } ?>
                 <div id="day_plan">
-                    <div id="img">
+                    <div class="img" id="<?= $plan->getId(); ?>">
                         <img src="/public/uploads/<?= $plan->getImage(); ?>">
-                        <div id="heart-fav">
-                            <i class="far fa-heart"></i>
+                        <div class="heart-fav" id="<?= $fav ?>">
+                            <i class="far fa-heart" id="clickme"></i>
                         </div>
                     </div>
                     <div id="details">
@@ -55,7 +62,7 @@
                         </div>
                         <div>
                             <i class="fas fa-clock"></i>
-                            <div id="time">time</div>
+                            <div id="time"><?= $timefrom['milestone_time'] ?> - <?= $timeto['milestone_time'] ?></div>
                         </div>
                         <div>
                             <i class="fas fa-comment"></i>
@@ -67,7 +74,7 @@
                         </div>
                         <div>
                             <i class="fas fa-walking"></i>
-                            <div id="milestones_count">6 day steps</div>
+                            <div id="milestones_count"><?= $milestones_counter ?> steps</div>
                         </div>
                         <div>
                             <i class="fas fa-route"></i>
@@ -78,52 +85,66 @@
                             <div id="likes"><?= $plan->getLikes(); ?></div>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <p id="tittle">MAP</p>
-                        <div id='map'></div>
-                    </div>
                 </div>
                 <div id="milestones">
                     <p id="tittle">DAY PLAN</p>
                     <div id="bg-color">
-                        <div id="zero">
-                            <p>0.</p>
-                            <div>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div><?= $city_country[0] ?>, <?= $city_country[1] ?></div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="milest-info">
-                            <?php $i = 1;
-                            foreach ($milestones
-
-                                     as $m) : ?>
+                        <div>
+                            <div id="zero">
+                                <p>0.</p>
                                 <div>
-                                    <div id="milestone-number">
-                                        <p><?= $i ?>.</p>
-                                    </div>
-                                    <div id="milestones-details">
-                                        <div>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div><?= $city_country[0] ?>, <?= $city_country[1] ?></div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="milest-info">
+                                <?php $i = 1;
+                                foreach ($milestones
+
+                                         as $m) : ?>
+                                    <div>
+                                        <div id="milestone-number">
+                                            <p><?= $i ?>.</p>
+                                        </div>
+                                        <div id="milestones-details">
                                             <div>
-                                                <i class="far fa-clock"></i>
-                                                <div><?= $m->getMilestoneTime() ?></div>
-                                            </div>
-                                            <div>
-                                                <i class="fas fa-utensils"></i>
-                                                <div><?= $m->getMilestoneLocation() ?></div>
-                                            </div>
-                                            <div>
-                                                <i class="far fa-file-alt"></i>
-                                                <div><?= $m->getMilestoneDescription() ?></div>
+                                                <div>
+                                                    <i class="far fa-clock"></i>
+                                                    <div><?= $m->getMilestoneTime() ?></div>
+                                                </div>
+                                                <div>
+                                                    <i class="fas fa-utensils"></i>
+                                                    <div><?= $m->getMilestoneLocation() ?></div>
+                                                </div>
+                                                <div>
+                                                    <i class="far fa-file-alt"></i>
+                                                    <div><?= $m->getMilestoneDescription() ?></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <?php $i += 1; endforeach; ?>
+                                    <?php $i += 1; endforeach; ?>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <p id="tittle">MAP</p>
+                <div id='map'></div>
+            </div>
+            <div class="comments-div">
+                <p id="comm_tittle">COMMENTS</p>
+                <div class="counter-comments">
+                    <p><?= $plan->getComments(); ?> comments</p>
+                </div>
+                <div id="div1">
+                    <textarea class="comment-input" rows="4"></textarea>
+                </div>
+                <div class="new_comment">
+
                 </div>
             </div>
         </main>

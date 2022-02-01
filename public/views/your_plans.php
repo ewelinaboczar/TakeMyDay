@@ -36,35 +36,38 @@
             </div>
             <section class="specific-plans">
                 <?php
-                foreach ($your_plans
-
-                as $plan) : ?>
-                <a id="<?= $plan->getId(); ?>" class="yp" href="day_plan/<?= $plan->getId(); ?>">
-                    <img class="photo" src="/public/uploads/<?= $plan->getImage(); ?>">
-                    <div class="heart">
-                        <p><i class="far fa-heart"></i></p>
-                    </div>
-                    <div class="description">
-                        <div class="plan-informations">
-                            <div>
-                                <div><i class="fas fa-map-marker-alt"></i><?= $plan->getCity(); ?></div>
-                                <div><i class="fas fa-clock"></i>time</div>
-                                <div><i class="fas fa-comment"></i><?= $plan->getComments(); ?></div>
+                foreach ($your_plans as $plan) :
+                    for ($r = 0; $r < count($counter); $r++) {
+                        for ($j = 0; $j < 2; $j++) {
+                            $count = $counter[$r][$j];
+                        }
+                    }
+                    ?>
+                    <a id="<?= $plan->getId(); ?>" class="yp" href="day_plan/<?= $plan->getId(); ?>">
+                        <img class="photo" src="/public/uploads/<?= $plan->getImage(); ?>">
+                        <div class="heart">
+                            <p><i class="fas fa-crown"></i></p>
+                        </div>
+                        <div class="description">
+                            <div class="plan-informations">
                                 <div>
-                                    <i class="fas fa-user"></i>
-                                    <?= $plan->getCreatedBy(); ?>
+                                    <div><i class="fas fa-map-marker-alt"></i><?= $plan->getCity(); ?></div>
+                                    <div><i class="fas fa-comment"></i><?= $plan->getComments(); ?></div>
+                                    <div>
+                                        <i class="fas fa-user"></i>
+                                        <?= $plan->getCreatedBy(); ?>
+                                    </div>
+                                    <div><i class="fas fa-walking"></i><?= $count ?> steps</div>
+                                    <div><i class="fas fa-route"></i><?= $plan->getMap(); ?></div>
+                                    <div><i class="fas fa-calendar-check"></i><?= $plan->getDate(); ?></div>
                                 </div>
-                                <div><i class="fas fa-walking"></i>6 steps</div>
-                                <div><i class="fas fa-route"></i><?= $plan->getMap(); ?></div>
-                                <div><i class="fas fa-calendar-check"></i><?= $plan->getDate(); ?></div>
+                            </div>
+                            <div class="likes">
+                                <i class="fas fa-heart"></i>
+                                <p><?= $plan->getLikes(); ?></p>
                             </div>
                         </div>
-                        <div class="likes">
-                            <i class="fas fa-heart"></i>
-                            <p><?= $plan->getLikes(); ?></p>
-                        </div>
-                    </div>
-                </a>
+                    </a>
                 <?php endforeach; ?>
             </section>
         </main>

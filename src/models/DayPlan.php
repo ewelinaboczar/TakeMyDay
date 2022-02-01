@@ -13,9 +13,11 @@ class DayPlan{
     private $milestones;
     private $map;
 
-    public function __construct($city)
+    public function __construct($city, $likes = 0, $id = null)
     {
         $this->city = $city;
+        $this->likes = $likes;
+        $this->id = $id;
     }
 
     public function getPlanid()

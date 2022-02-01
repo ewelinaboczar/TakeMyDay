@@ -13,13 +13,16 @@ Routing::get('home', 'DayPlanController');
 Routing::get('discover', 'DefaultController');
 Routing::get('favourite', 'DayPlanController');
 Routing::get('your_plans', 'DayPlanController');
-Routing::get('create_plan', 'DefaultController');
+Routing::get('create_plan', 'DayPlanController');
+Routing::post('add_plan', 'DayPlanController');
 Routing::get('change_password', 'DefaultController');
-Routing::get('add_plan', 'DayPlanController');
+
 Routing::get('account_details', 'UserController');
 Routing::get('change_account_details', 'DefaultController');
 Routing::get('discover_results', 'DefaultController');
 Routing::get('places', 'DayPlanController');
+Routing::get('heart', 'DayPlanController');
+Routing::get('unheart', 'DayPlanController');
 
 Routing::post('addPhoto', 'UserController');
 Routing::post('addDetails', 'UserController');
