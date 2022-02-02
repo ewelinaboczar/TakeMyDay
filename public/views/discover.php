@@ -15,19 +15,19 @@
         <nav id="menu">
             <ul>
                 <li>
-                    <a class="notactive" href="/home/"><i class="fas fa-home"></i><h>HOME</h></a>
+                    <a class="notactive" href="/home"><i class="fas fa-home"></i><h>HOME</h></a>
                 </li>
                 <li>
-                    <a class="active" href="/discover/"><i class="fas fa-map-marked-alt"></i><h>DISCOVER</h></a>
+                    <a class="active" href="/discover"><i class="fas fa-map-marked-alt"></i><h>DISCOVER</h></a>
                 </li>
                 <li>
-                    <a class="notactive" href="/favourite/"><i class="fas fa-heart"></i><h>FAVOURITE</h></a>
+                    <a class="notactive" href="/favourite"><i class="fas fa-heart"></i><h>FAVORITE</h></a>
                 </li>
                 <li>
-                    <a class="notactive" href="/your_plans/"><i class="far fa-clock"></i><h>YOUR PLANS</h></a>
+                    <a class="notactive" href="/your_plans"><i class="far fa-clock"></i><h>YOUR PLANS</h></a>
                 </li>
                 <li>
-                    <a class="notactive" href="/account_details/"><i class="fas fa-user-circle"></i><h>ACCOUNT</h></a>
+                    <a class="notactive" href="/account_details"><i class="fas fa-user-circle"></i><h>ACCOUNT</h></a>
                 </li>
             </ul>
         </nav>

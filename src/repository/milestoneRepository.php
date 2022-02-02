@@ -95,41 +95,6 @@ class MilestoneRepository extends Repository
         }
     }
 
-    public function getMilestoneTimeFrom($planid): array
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.milestone m
-            LEFT JOIN public.rel_milestone_day_plan rmdp on rmdp.milestone_id = m.milestone_id
-            WHERE rmdp.plan_id = :planid and m.milestone_id = (SELECT min(milestone_id) from public.rel_milestone_day_plan)
-        ');
-        $stmt->bindParam(':planid', $planid, PDO::PARAM_INT);
-        $stmt->execute();
-        if($stmt->fetch(PDO::FETCH_ASSOC)){
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        }
-        else{
-            return ['...'];
-        }
-
-    }
-
-    public function getMilestoneTimeTo($planid): array
-    {
-        $stmt2 = $this->database->connect()->prepare('
-            SELECT m.milestone_time FROM public.milestone m
-            LEFT JOIN public.rel_milestone_day_plan rmdp on rmdp.milestone_id = m.milestone_id
-            WHERE rmdp.plan_id = :planid and m.milestone_time = (SELECT MAX(milestone_time) from public.milestone);
-        ');
-        $stmt2->bindParam(':planid', $planid, PDO::PARAM_INT);
-        $stmt2->execute();
-        if($stmt2->fetch(PDO::FETCH_ASSOC)){
-            return $stmt2->fetch(PDO::FETCH_ASSOC);
-        }
-        else{
-            return ['...'];
-        }
-    }
-
     public function getMilestoneId(Milestone $mil):int{
         $loc = $mil->getMilestoneLocation();
         $timee = $mil->getMilestoneTime();

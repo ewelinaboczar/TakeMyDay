@@ -69,8 +69,6 @@ class DayPlanController extends AppController
         $city_country = $this->countryRepository->getCityCountryByPlanId($id);
         $plan = $this->dayPlanRepository->getPlanById($id);
         $milestones = $this->milestoneRepository->getMilestonesByPlanId($id);
-        //$timefrom = $this->milestoneRepository->getMilestoneTimeFrom($id);
-        //$timeto = $this->milestoneRepository->getMilestoneTimeTo($id);
         $isFav = $this->dayPlanRepository->isFavourite($id, $userid);
         $this->render('day_plan', ['plan' => $plan,
             'milestones' => $milestones,
