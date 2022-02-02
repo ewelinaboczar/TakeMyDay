@@ -12,6 +12,7 @@ class User
     private $name;
     private $dateOfBirth;
     private $admin;
+    private $or_logged_in;
 
 
     public function __construct(string $email, string $password, string $nick){
@@ -100,5 +101,14 @@ class User
     public function setAdmin($admin): void
     {
         $this->admin = $admin;
+    }
+
+    public function getOrLoggedIn()
+    {
+        return $this->or_logged_in;
+    }
+    public function setOrLoggedIn($or_logged_in): void
+    {
+        $this->or_logged_in = $or_logged_in;
     }
 }

@@ -40,14 +40,17 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => $exception->getMessage()]);
         }
         if (!$user) {
+            $this->userRepository->updateUserLogged($user,false);
             $this->logout();
             return $this->render('login', ['messages' => ['User not exist!']]);
         }
         if ($user->getEmail() !== $email && $user->getNick()) {
+            $this->userRepository->updateUserLogged($user,false);
             $this->logout();
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
         if (!password_verify($password, $user->getPassword())) {
+            $this->userRepository->updateUserLogged($user,false);
             $this->logout();
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
@@ -55,6 +58,7 @@ class SecurityController extends AppController
         if (password_verify($_POST["password"], $user->getPassword())) {
             $_SESSION['user'] = ($_POST['email']);
         }
+        $this->userRepository->updateUserLogged($user,true);
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
@@ -63,6 +67,10 @@ class SecurityController extends AppController
     public function logout()
     {
         session_start();
+        $user_array = json_decode($_COOKIE['logUser'],true);
+
+        $logUser = new User($user_array['email'],$user_array['password'],$user_array['nick']);
+        $this->userRepository->updateUserLogged($logUser,false);
         $_SESSION = array();
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();

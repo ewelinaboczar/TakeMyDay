@@ -35,6 +35,7 @@ class UserRepository extends Repository
         $new_user->setSurname($user['surname']);
         $new_user->setUserPhoto($user['user_photo']);
         $new_user->setCountry($user['country_name']);
+        $new_user->setOrLoggedIn('true');
 
         return $new_user;
     }
@@ -193,5 +194,19 @@ class UserRepository extends Repository
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data['country_id'];
+    }
+
+    public function updateUserLogged($user,$bol)
+    {
+        $id = $this->getUserId($user->getEmail());
+
+        $stmt = $this->database->connect()->prepare('
+            UPDATE public.users 
+            SET or_logged_in = :bol
+            WHERE id = :id
+        ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':bol', $bol, PDO::PARAM_BOOL);
+        $stmt->execute();
     }
 }
