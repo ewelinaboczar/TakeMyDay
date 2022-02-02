@@ -185,6 +185,7 @@ function checkIfIsNull(t, l, typ, city) {
     }
 }
 
+
 buttonsDiv.style.left = "-100vw";
 buttonsDiv.style.opacity = "0";
 endDiv.style.left = "-100vw";

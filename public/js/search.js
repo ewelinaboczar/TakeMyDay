@@ -5,6 +5,7 @@ const a = document.querySelector('.templ-a');
 search.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
+        console.log(search.value);
 
         const data = {search: this.value};
 
@@ -18,6 +19,7 @@ search.addEventListener("keyup", function (event) {
             return response.json();
         }).then(function (plans) {
             planContainer.innerHTML = "";
+            console.log(plans);
             loadPlans(plans)
         });
     }
@@ -46,8 +48,6 @@ function createPlan(plan) {
     location.innerHTML = plan.city_name;
     const date = clone.querySelector("#date");
     date.innerHTML = plan.date_added;
-    const comments = clone.querySelector("#comments");
-    comments.innerHTML = plan.comments;
     const nick = clone.querySelector("#nick");
     nick.innerHTML = plan.nick;
     const likes = clone.querySelector("#likes");

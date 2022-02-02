@@ -2,7 +2,7 @@ html {
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -463,7 +463,7 @@ body {
 
 }
 
-.bottom main.home-bottom > .right > .plans-home > a{
+.bottom main.home-bottom > .right > .plans-home > a {
     background: #007EAC;
 }
 
@@ -522,7 +522,7 @@ main.discover-bottom {
     gap: 1.5em;
 }
 
- #country {
+#country {
     align-self: center;
     padding: 0.5em 2em;
     background: transparent;
@@ -674,16 +674,16 @@ div.under-create a, .buttonsss button, .send {
     }
 
     .text-welcome {
-        position: absolute;
-        top: 4em;
+        position: relative;
+        top: -3em;
         font-size: 90px;
         color: #E2EDFF;
     }
 
     .text-upper {
-        position: absolute;
+        position: relative;
         font-size: 30px;
-        top: 19em;
+        top: -9em;
         color: #E2EDFF;
     }
 
@@ -702,6 +702,229 @@ div.under-create a, .buttonsss button, .send {
 
     .container input {
         font: normal normal 600 30px/35px Segoe UI;
+    }
+
+    #submit {
+        font-size: 40px !important;
+    }
+
+    .top-photo > .right {
+        position: relative;
+        top: 4em;
+        right: 3em;
+    }
+
+    .top-photo > .left {
+        max-width: 100%;
+    }
+
+    .top-photo {
+        height: 10%;
+    }
+
+    .logo-home {
+        display: none;
+    }
+
+    .person :first-child {
+        position: relative;
+        right: 3em;
+        font-size: 30px;
+    }
+
+    .person :last-child {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        top: -0.3em;
+        left: -0.5em;
+    }
+
+    .bottom {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        height: 90%;
+        overflow: auto;
+    }
+
+    .bottom main {
+        width: 100%;
+        height: 82vh !important;
+        flex-direction: column-reverse;
+        overflow: auto;
+    }
+
+    .bottom > nav {
+        width: 100%;
+        justify-content: center;
+        height: 10%;
+    }
+
+    .bottom > nav ul {
+        display: flex;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+
+    .bottom > nav h {
+        display: none;
+    }
+
+    .bottom > nav a.active, .bottom > nav a.notactive {
+        font: normal normal 600 80px/24px Segoe UI;
+    }
+
+    .bottom > nav li {
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+    }
+
+    .bottom > nav a {
+        padding: 0.1em;
+    }
+
+    .bottom main.home-bottom > .right, .bottom main.home-bottom > .left {
+        width: 100%;
+        position: relative;
+    }
+
+    section, #plan-result {
+
+    }
+
+    .plan-informations > div > div {
+        font: normal normal normal 37px/20px Segoe UI !important;
+    }
+
+    .plans-home > div > img, .plans-home > a > img {
+        width: 400px !important;
+        height: 300px !important;
+    }
+
+    p.txt2 {
+        padding: 0.5em;
+        font: normal normal bold 34px/24px Segoe UI !important;
+    }
+
+    .counter p {
+        font: normal normal normal 44px/27px Segoe UI;
+    }
+
+    .counter div.number {
+        font: normal normal bold 34px/27px Segoe UI;
+    }
+
+    .plan-photograph > p {
+        border-radius: 100%;
+        padding: 0.5em;
+        font: normal normal bold 63px/33px Segoe UI;
+    }
+
+    .fav-bottom section {
+        grid-template-columns: none;
+    }
+
+    .fav img {
+        height: 300px !important;
+    }
+
+    .fav-bottom .likes {
+        font: normal normal normal 38px/20px Segoe UI;
+    }
+
+    .plan-informations > div > div {
+        font: normal normal normal 30px/20px Segoe UI !important;
+    }
+
+    .plan-informations > div {
+        grid-gap: 1.5em 8em !important;
+    }
+
+    .discover-bottom {
+        flex-direction: column !important;
+        margin-left: 0 !important;
+    }
+
+    .selectable-bar > form, #discover-bar {
+        height: 100px;
+    }
+
+    #browser {
+        font: normal normal 600 35px/32px Segoe UI !important;
+        width: 63vw !important;
+    }
+
+    .yp {
+        position: relative;
+        top: 3em;
+        right: 9em;
+    }
+
+    .specific-plans img, #plan-result img {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .specific-plans > .heart p {
+        left: -16.5em;
+        top: 11em;
+    }
+
+    .specific-plans > .likes {
+        font: normal normal normal 31px/20px Segoe UI;
+    }
+
+    .discover-bottom > .selectable-bar {
+        height: 20%;
+    }
+
+    .discover-bottom > .under {
+        height: 80%;
+    }
+    #dp > div{
+        flex-direction: column!important;
+    }
+    #day_plan, #milestones{
+         width: 100% !important;
+     }
+    .heart-fav{
+        width: 100px!important;
+        height: 100px!important;
+        font-size: 60px!important;
+    }
+    #day_plan > #details{
+        font: normal normal bold 35px/28px Segoe UI!important;
+    }
+    #milestones-details > div > div, #zero > div,.delete{
+        font: normal normal 600 28px/26px Segoe UI!important;
+    }
+    #zero p, #milestone-number p{
+        font: normal normal 600 29px/26px Segoe UI!important;
+    }
+    #zero>div {
+        padding: 0.5em 1em;
+    }
+    .delete{
+        width: 20%;
+        height: 40px;
+    }
+    .specific-plans > .yp{
+        width: 100%!important;
+        position: relative;
+        right: 0.3em;
+        top:1em;
+    }
+    .specific-plans >.yp > .heart p{
+        left: -17.5em;
+        top: 13em;
+    }
+    .yp > .description > .likes{
+        font: normal normal normal 29px/20px Segoe UI!important;
+    }
+    .upper-buttons a.notactive:hover:not(.active) {
+        font: normal normal 600 80px/20px Segoe UI!important;
     }
 }
 

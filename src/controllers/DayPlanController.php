@@ -57,6 +57,7 @@ class DayPlanController extends AppController
 
             header('Content-type: application/json');
             http_response_code(200);
+
             echo json_encode($this->dayPlanRepository->getPlansByCity($decoded['search']));
         }
     }
